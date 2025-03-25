@@ -1,7 +1,9 @@
 from flask import Flask, request, jsonify
 import joblib
-# import 
-
+import os
+from dotenv import *
+load_dotenv()  # take environment variables
+config = dotenv_values(".env")
 app = Flask(__name__)
 model = joblib.load("./models/mbti_model.pkl")
 vectorizer = joblib.load("./models/tfidf_vectorizer.pkl")
@@ -49,6 +51,6 @@ def predict():
         return jsonify({"predictions": classes, "confidences": confidences})
     except Exception as e:
         return jsonify({"error": str(e)})
-    
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=config['debug'] == 'True')
