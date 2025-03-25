@@ -1,0 +1,33 @@
+# Byte-compiled / cached files
+__pycache__/
+*.py[cod]
+*.so
+*.swp
+*.swo
+
+# Virtual environment
+venv/
+.env
+*.env
+
+# Logs and databases
+*.log
+*.sqlite3
+instance/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# VS Code settings
+.vscode/
+
+# PyCharm settings
+.idea/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Dependencies
+node_modules/
+mbti/
