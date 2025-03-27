@@ -1,10 +1,5 @@
 import * as React from "react";
 import { createTheme, styled } from "@mui/material/styles";
-// import DashboardIcon from "@mui/icons-material/Dashboard";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import BarChartIcon from "@mui/icons-material/BarChart";
-import DescriptionIcon from "@mui/icons-material/Description";
-import LayersIcon from "@mui/icons-material/Layers";
 import { AppProvider } from "@toolpad/core/AppProvider";
 import { DashboardLayout } from "@toolpad/core/DashboardLayout";
 import { PageContainer } from "@toolpad/core/PageContainer";
@@ -21,6 +16,22 @@ import PeopleIcon from "@mui/icons-material/People"; // For Friends
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports"; // For Leisure
 import StarIcon from "@mui/icons-material/Star"; // For Recommendations Header
 import PersonSearchIcon from "@mui/icons-material/PersonSearch"; // For "People You May Like" header
+
+const demoTheme = createTheme({
+    cssVariables: {
+        colorSchemeSelector: "class",
+    },
+    breakpoints: {
+        values: {
+            xs: 0,
+            sm: 600,
+            md: 900,
+            lg: 1200,
+            xl: 1536,
+        },
+    },
+    colorSchemes: { dark: true, light: true },
+});
 
 const NAVIGATION = [
     {
@@ -71,21 +82,7 @@ const NAVIGATION = [
         icon: <PeopleIcon />, // More appropriate than LayersIcon
     },
 ];
-const demoTheme = createTheme({
-    cssVariables: {
-        colorSchemeSelector: "class",
-    },
-    breakpoints: {
-        values: {
-            xs: 0,
-            sm: 600,
-            md: 900,
-            lg: 1200,
-            xl: 1536,
-        },
-    },
-    colorSchemes: { dark: true, light: true },
-});
+
 
 function useDemoRouter(initialPath) {
     const [pathname, setPathname] = React.useState(initialPath);
@@ -138,7 +135,7 @@ export default function Dashboard(props) {
             theme={demoTheme}
             branding={{
                 logo: <img src="https://mui.com/static/logo.png" alt="MUI logo" />,
-                title: "MUI",
+                title: "VibeSphere",
                 homeUrl: "/",
             }}
         >
