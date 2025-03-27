@@ -1,20 +1,29 @@
 import "./App.css";
-import Navbar from "./components/Navbar/Navbar";
 import { createTheme, ThemeProvider } from "@mui/material";
 import AllRoutes from "./Routes";
 import { BrowserRouter } from "react-router-dom";
+import { AuthProvider } from "./AuthContext";
 
-const appTheme = createTheme({
+export const appTheme = createTheme({
     cssVariables: {
         colorSchemeSelector: "class",
     },
     breakpoints: {
         values: {
-            xs: 0,
-            sm: 600,
-            md: 900,
+            xs: 380,
+            sm: 500, // Custom small starts at 500px
+            md: 800,
             lg: 1200,
-            xl: 1536,
+            xl: 1600,
+        },
+    },
+    components: {
+        MuiButton: {
+            styleOverrides: {
+                root: {
+                    textTransform: "none", // Disable uppercase
+                },
+            },
         },
     },
     colorSchemes: { dark: true, light: true },
@@ -26,12 +35,11 @@ function App() {
             <ThemeProvider
                 theme={appTheme}
             >
-                {/* <AuthProvider> */}
-                {/* <Navbar /> */}
+                <AuthProvider>
                     <BrowserRouter>
                         <AllRoutes />
                     </BrowserRouter>
-                {/* </AuthProvider> */}
+                </AuthProvider>
             </ThemeProvider>
         // </GoogleOAuthProvider>
     );

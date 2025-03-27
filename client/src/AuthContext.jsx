@@ -5,7 +5,9 @@ import { Snackbar, Alert } from "@mui/material";
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-    const [admin, setAdmin] = useState(null);
+    const [user, setUser] = useState(null);
+    const [userLoad, setUserLoad] = useState(null);
+    
     const [profileStatus, setProfileStatus] = useState(false);
     const [alert, setAlert] = useState({ open: false, message: "", severity: "info" });
 
@@ -17,26 +19,28 @@ export const AuthProvider = ({ children }) => {
         setAlert({ ...alert, open: false });
     };
 
-    const handleLogin = (adminData) => {
-        console.log("Admin login successful");
-        setAdmin(adminData);
-        showAlert(`Welcome, ${adminData.role} ${adminData.name.split(" ")[0]}`, "success");
-        setProfileStatus(adminData.team ? true : false);
+    const handleLogin = (userData) => {
+        setUserLoad(true)
+        console.log("user login successful");
+        setUser(userData);
+        showAlert(`Welcome, ${userData.role} ${userData.name.split(" ")[0]}`, "success");
+        setProfileStatus(userData.mbti ? true : false);
+        setUserLoad(false)
     };
 
     const handleLogout = async () => {
-        console.log("Logout the Admin!");
+        console.log("Logout the user!");
         try {
             // await logout();
-            showAlert("Admin has been logged out", "success");
-            setAdmin(null);
+            showAlert("user has been logged out", "success");
+            setUser(null);
         } catch (err) {
             showAlert(err.message, "error");
         }
     };
 
     return (
-        <AuthContext.Provider value={{ admin, handleLogin, handleLogout, profileStatus, setProfileStatus }}>
+        <AuthContext.Provider value={{ user, handleLogin, handleLogout, profileStatus, setProfileStatus, userLoad, setUserLoad }}>
             {children}
 
             {/* MUI Snackbar for notifications */}
