@@ -21,7 +21,7 @@ const Navbar = () => {
                     color: "var(--mui-orange)",
                 }}
             >
-                AppName
+                VibeSphere
             </Typography>
             <Button variant="contained">Login</Button>
         </Box>

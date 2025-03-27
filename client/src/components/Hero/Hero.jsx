@@ -72,8 +72,8 @@ const Hero = () => {
                     zIndex: "20"
                 }}
             >
-                <Button variant="contained">Take the test</Button>
-                <Button variant="outlined">Know about MBTI</Button>
+                <Button size="large" variant="contained">Know your vibe</Button>
+                <Button size="large" variant="outlined">What is MBTI?</Button>
             </ButtonGroup>
         </Box>
     );

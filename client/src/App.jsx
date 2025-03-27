@@ -18,28 +18,35 @@ const theme = createTheme({
     },
     breakpoints: {
         values: {
-          xs: 380,
-          sm: 500,  // Custom small starts at 500px
-          md: 800,  
-          lg: 1200,
-          xl: 1600,
+            xs: 380,
+            sm: 500, // Custom small starts at 500px
+            md: 800,
+            lg: 1200,
+            xl: 1600,
         },
-      },
+    },
+    components: {
+        MuiButton: {
+            styleOverrides: {
+                root: {
+                    textTransform: "none", // Disable uppercase
+                },
+            },
+        },
+    },
 });
 
 function App() {
     return (
         // <GoogleOAuthProvider clientId={client_ID}>
-            <ThemeProvider
-                theme={theme}
-            >
-                {/* <AuthProvider> */}
-                <Navbar />
-                    <BrowserRouter>
-                        <AllRoutes />
-                    </BrowserRouter>
-                {/* </AuthProvider> */}
-            </ThemeProvider>
+        <ThemeProvider theme={theme}>
+            {/* <AuthProvider> */}
+            <Navbar />
+            <BrowserRouter>
+                <AllRoutes />
+            </BrowserRouter>
+            {/* </AuthProvider> */}
+        </ThemeProvider>
         // </GoogleOAuthProvider>
     );
 }
