@@ -11,3 +11,10 @@ const API = axios.create({
 export const authWithGoogle = (code) => API.get(`/auth/google?code=${code}`);
 export const checkStatus = () => API.get(`/auth/status`);
 export const logoutUser = () => API.get(`/auth/logout`);
+
+export const updateMember = (data) =>
+    API.patch("/user/update", data, {
+        headers: {
+            "Content-Type": "application/json",
+        },
+    });

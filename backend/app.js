@@ -49,11 +49,12 @@ app.use((req, res, next) => {
 // Routers for app
 const router = require("./routes/mainRoutes");
 const authRouter = require("./routes/authRoutes");
+const userRouter = require("./routes/userRoutes");
 
 // setting Routes
 app.use("/api/v1/", router);
 app.use("/api/v1/auth/", authRouter);
-// app.use("/api/v1/member/", userRouter);
+app.use("/api/v1/user/", userRouter);
 // app.use("/api/v1/event/", eventRouter);
 // app.use("/api/v1/eventreg/", userEnrollRouter);
 

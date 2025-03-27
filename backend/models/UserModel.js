@@ -14,6 +14,9 @@ const userSchema = new mongoose.Schema({
     },
     image: {
         type: String
+    },
+    mbti: {
+        type: String
     }
 },
     { timestamps: true }
