@@ -109,8 +109,8 @@ const Homepage = () => {
     return (
         <AppProvider
             branding={{
-                logo: <img src="https://mui.com/static/logo.png" alt="MUI logo" />,
-                title: "VibeSphere",
+                logo: <img src="/icon.svg" alt="VibeSphere" />,
+                title: "",
                 homeUrl: "/",
             }}
             theme={appTheme}

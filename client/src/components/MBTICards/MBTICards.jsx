@@ -1,12 +1,15 @@
 import { Box, Card, Grid, CardContent, Typography, Chip, Divider } from "@mui/material";
 import React from "react";
+import "./MBTICards.css"
 
-export const MBTICard = ({mbti}) => {
+export const MBTICard = ({ mbti }) => {
+    console.log(mbti);
+
     return (
-        <Card elevation={5} sx={{ p: 0.5}}>
+        <Card elevation={5} sx={{ p: 0.5 }}>
             <CardContent sx={{ display: "flex", gap: 2 }} className="mbti-card">
-                <Box sx = {{minWidth: 300}}>
-                    <img src={"/assets/MBTI/ISFJ.png"} style={{ width: "100%", height: "100%" }} />
+                <Box sx={{ minWidth: 300 }}>
+                    <img src={`/assets/MBTI_img/${mbti.name}.png`} style={{ width: "100%", height: "100%" }} />
                 </Box>
                 <Box>
                     <Typography variant="body2" color="text.secondary" sx={{ fontSize: 20 }}>
@@ -18,20 +21,19 @@ export const MBTICard = ({mbti}) => {
                         component="div"
                         sx={{ fontWeight: 600, lineHeight: "1.2em", fontFamily: "monospace", lineHeight: "1em", m: 0 }}
                     >
-                        INFP
+                        {mbti.name}
                     </Typography>
 
                     <Box
                         sx={{ display: "flex", alignItems: "center", mt: 1, gap: 0.5, width: "100%", flexWrap: "wrap" }}
                     >
-                        {["Funny", "Free-going", "Happy", "Some tag1", "Anything else?"].map((tag, i) => (
-                            <Chip label={tag} size="large" color="primary" key={i} variant="outlined" />
+                        {mbti.data.types?.map((tag, i) => (
+                            <Chip label={tag} size="large" color="warning" key={i} variant="filled" />
                         ))}
                     </Box>
-                    <Divider sx = {{my: 2}}/>
-                    <Typography variant="body1" color="text.primary" >
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae in corrupti accusamus eius
-                        suscipit blanditiis aliquam consequuntur
+                    <Divider sx={{ my: 2 }} />
+                    <Typography variant="body1" color="text.primary">
+                        {mbti.data.description}
                     </Typography>
                 </Box>
             </CardContent>
@@ -39,24 +41,17 @@ export const MBTICard = ({mbti}) => {
     );
 };
 
-export const InfoCard = () => {
+export const InfoCard = ({ category }) => {
     return (
         <Card elevation={4} sx={{ p: 1 }}>
             <CardContent>
-                <Typography variant="body2" color="text.secondary">
-                    Type
+                
+                <Typography variant="h5" color="text.primary">
+                <Chip label={category.short} size="large" color="secondary" variant="filled" sx = {{my: 1, mr: 1}}/>{category.name}
                 </Typography>
-                <Typography variant="h4" color="text.primary">
-                    Introversion
-                </Typography>
-                <Divider />
-
-                <Typography variant="body2" color="text.secondary" sx={{ mt: 2 }}>
-                    Description
-                </Typography>
+                <Divider sx = {{my: 1}}/>
                 <Typography variant="body1" color="text.primary">
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Molestiae in corrupti accusamus eius
-                    suscipit blanditiis aliquam consequuntur
+                    {category.description}
                 </Typography>
             </CardContent>
         </Card>

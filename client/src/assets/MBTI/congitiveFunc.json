@@ -1,0 +1,42 @@
+{
+    "Ni": {
+        "name": "Introverted Intuition",
+        "short": "Ni",
+        "description": "Foresees patterns and outcomes. Focused on abstract visions. Strategizes long-term. Often has 'aha' moments. Future-oriented and insightful."
+    },
+    "Ne": {
+        "name": "Extraverted Intuition",
+        "short": "Ne",
+        "description": "Generates endless possibilities. Connects disparate ideas. Brainstorms creatively. Loves novelty. Jumps between concepts. Sees potential everywhere."
+    },
+    "Si": {
+        "name": "Introverted Sensing",
+        "short": "Si",
+        "description": "Recalls past details accurately. Values traditions. Compares present to memories. Prefers routine. Notices subtle changes. Reliable and meticulous."
+    },
+    "Se": {
+        "name": "Extraverted Sensing",
+        "short": "Se",
+        "description": "Lives in the moment. Thrives on sensory experiences. Acts impulsively. Loves adrenaline. Observant of surroundings. Hands-on and adaptable."
+    },
+    "Ti": {
+        "name": "Introverted Thinking",
+        "short": "Ti",
+        "description": "Seeks logical precision. Analyzes systems internally. Questions assumptions. Values accuracy. Detached but deep. Builds mental frameworks."
+    },
+    "Te": {
+        "name": "Extraverted Thinking",
+        "short": "Te",
+        "description": "Organizes efficiently. Solves problems pragmatically. Directs others. Focuses on results. Prioritizes productivity. Establishes clear systems."
+    },
+    "Fi": {
+        "name": "Introverted Feeling",
+        "short": "Fi",
+        "description": "Guided by personal values. Authentic and empathetic. Judges morality internally. Deep emotions. Resists conformity. Seeks personal meaning."
+    },
+    "Fe": {
+        "name": "Extraverted Feeling",
+        "short": "Fe",
+        "description": "Harmonizes group dynamics. Reads emotional atmospheres. Prioritizes others' needs. Socially diplomatic. Expresses warmth. Values collective ethics."
+    }
+}
