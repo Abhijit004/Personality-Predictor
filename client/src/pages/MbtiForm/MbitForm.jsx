@@ -32,7 +32,7 @@ const LongTextForm = () => {
 
     const { user } = useAuth();
     const [loading, setLoading] = useState(false);
-    const navigate  = useNavigate();
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -73,14 +73,11 @@ const LongTextForm = () => {
 
                 const res = await updateMember({ text: text, _id: user._id });
                 if (res.status === 200) {
-                    alert("Data submitted successfully!");
                     console.log(res.data);
-                    navigate('/dashboard')
+                    navigate("/dashboard");
                 } else {
-                    alert("Some error occured.");
                     console.log(res.data);
                 }
-                alert("Form submitted successfully!");
                 // Here you would typically send the data to an API
             } catch (err) {
                 console.log(err);
@@ -188,7 +185,7 @@ const LongTextForm = () => {
                     </FormControl>
 
                     <Box sx={{ display: "flex", justifyContent: "flex-end", p: 2, gap: 2 }}>
-                        <Button type="submit" variant="contained" size="large">
+                        <Button loading={loading} type="submit" variant="contained" size="large">
                             Submit
                         </Button>
                         <Button

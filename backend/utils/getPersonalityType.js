@@ -8,7 +8,7 @@ exports.getPersonalityTypes = async (text) => {
             { text },
             { headers: { "Content-Type": "application/json" } }
         );
-        return predict
+        return predict.data
     } catch (err) {
         console.log(err.message)
         throw new Error("MBTI Fetching Failed");
