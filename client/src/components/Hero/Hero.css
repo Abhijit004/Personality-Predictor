@@ -1,0 +1,67 @@
+.hero {
+    height: 30vw;
+    width: 30vw;
+    min-width: 18rem;
+    min-height: 18rem;
+    background-image: url("/assets/Variant-1.webp");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 10;
+    /* overflow-x: hidden; */
+}
+.comment {
+    height: 70%;
+    width: 70%;
+
+    position: absolute;
+    top: 0%;
+    left: -55%;
+    background-image: url("/assets/Comment.webp");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* overflow-x: hidden; */
+
+}
+.chat {
+    height: 70%;
+    width: 70%;
+
+    position: absolute;
+    bottom: -12%;
+    left: -60%;
+    background-image: url("/assets/Chat.webp");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* overflow-x: hidden; */
+
+}
+.post {
+    height: 80%;
+    width: 80%;
+
+    position: absolute;
+    top: 10%;
+    right: -70%;
+    background-image: url("/assets/Post.webp");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* overflow-x: hidden; */
+
+}
+.designer {
+    height: 160%;
+    width: 160%;
+
+    position: absolute;
+    background-image: url("/assets/Designer.webp");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: -1;
+    /* overflow-x: hidden; */
+
+}

@@ -1,12 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wdth,wght@0,62.5..100,100..900;1,62.5..100,100..900&display=swap');
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  font-family: "Noto Sans", system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-weight: 400;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  --mui-red: #F44336;
+  --mui-yellow: #FFC107;
+  --mui-green: #4CAF50;
+  --mui-blue: #2196F3;
+  --mui-purple: #673AB7;
+  --mui-orange: #FF9800;
+  color: #3b3b3b;
 }
 
 *, *::after, *::before {
@@ -14,4 +22,22 @@
   margin: 0;
   outline: 0;
   padding: 0;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+*::-webkit-scrollbar {
+  width: 2px;
+  /* background: linear-gradient(var(--brand) 20%, white 100%); */
+}
+
+*::-webkit-scrollbar-thumb {
+  width: 2px !important;
+  background: var(--mui-orange);
+}
+*::-webkit-scrollbar-button,
+*::-webkit-scrollbar-corner {
+  display: none;
 }
