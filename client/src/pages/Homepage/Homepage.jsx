@@ -82,12 +82,13 @@ const NAVIGATION = [
 const Homepage = () => {
     const { user, handleLogin } = useAuth();
     console.log(user);
-    
+    const width = window.innerWidth
+
     const router = useDemoRouter("/");
     function renderDash(mbti) {
         switch (router.pathname) {
             case "/aboutmbti":
-                return <AboutMyMBTI mbti={mbti}/>;
+                return <AboutMyMBTI mbti={mbti} />;
             case "/books":
                 return <Books />;
             case "/movies":
@@ -118,6 +119,8 @@ const Homepage = () => {
             router={router}
         >
             <DashboardLayout
+                disableCollapsibleSidebar = {width >= 1350}
+                defaultSidebarCollapsed
                 hideNavigation={!user?.mbti.length}
                 slots={{
                     toolbarActions: () => <AccountMenu />,

@@ -26,17 +26,17 @@ const DashCard = () => {
 const DashboardHome = () => {
     return (
         <Grid container spacing={2}>
-            <Grid size={{ xs: 12, sm: 6, md: 6 }}>
+            <Grid size={{ sm: 12, md: 6 }}>
                 <DashCard />
             </Grid>
-            <Grid size={{ xs: 12, sm: 6, md: 6 }}>
+            <Grid size={{ sm: 12, md: 6 }}>
                 <DashCard />
             </Grid>
 
-            <Grid size={{ xs: 12, sm: 6, md: 6 }}>
+            <Grid size={{ sm: 12, md: 6 }}>
                 <DashCard />
             </Grid>
-            <Grid size={{ xs: 12, sm: 6, md: 6 }}>
+            <Grid size={{ sm: 12, md: 6 }}>
                 <DashCard />
             </Grid>
         </Grid>
