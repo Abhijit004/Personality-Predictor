@@ -91,13 +91,6 @@ function useDemoRouter(initialPath) {
     return router;
 }
 
-const Skeleton = styled("div")(({ theme, height }) => ({
-    backgroundColor: theme.palette.secondary.main,
-    borderRadius: theme.shape.borderRadius,
-    height,
-    content: '" "',
-}));
-
 export default function Dashboard(props) {
     const { window } = props;
 

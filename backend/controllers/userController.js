@@ -7,11 +7,14 @@ exports.updateUser = catchAsync(async (req, res, next) => {
     try {
         const text = req.body.text;
         const mbti = await getPersonalityTypes(text);
+        console.log("Personality Type:");
+        console.log(mbti);
+        
         const newUser = await User.findOneAndUpdate(
             { _id: req.body._id },
             {
                 $set: {
-                    mbti: mbti
+                    mbti: mbti.data
                 },
             },
             { new: true, runValidators: true } // Get the updated document
