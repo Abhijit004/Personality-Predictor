@@ -39,29 +39,29 @@ export default function AccountMenu() {
     const navigate = useNavigate();
 
     const responseGoogle = async (authResult) => {
-        // try {
-        //     setUserLoad(true);
-        //     if (authResult["code"]) {
-        //         console.log(authResult.code);
-        //         const result = await authWithGoogle(authResult.code);
-        //         handleLogin(result.data.data.user);
-        //         console.log(result);
-        //     } else {
-        //         console.log(authResult);
-        //         throw new Error(authResult);
-        //     }
-        // } catch (e) {
-        //     console.log(e);
-        // } finally {
-        //     setUserLoad(false);
-        // }
+        try {
+            setUserLoad(true);
+            if (authResult["code"]) {
+                console.log(authResult.code);
+                const result = await authWithGoogle(authResult.code);
+                console.log(result);
+                handleLogin(result.data.data.user);
+            } else {
+                console.log(authResult);
+                throw new Error(authResult);
+            }
+        } catch (e) {
+            console.log(e);
+        } finally {
+            setUserLoad(false);
+        }
     };
 
-    // const googleLogin = useGoogleLogin({
-    //     onSuccess: responseGoogle,
-    //     onError: responseGoogle,
-    //     flow: "auth-code",
-    // });
+    const googleLogin = useGoogleLogin({
+        onSuccess: responseGoogle,
+        onError: responseGoogle,
+        flow: "auth-code",
+    });
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
@@ -186,7 +186,7 @@ export default function AccountMenu() {
                     <MenuItem
                         onClick={() => {
                             handleClose();
-                            // googleLogin();
+                            googleLogin();
                         }}
                     >
                         <ListItemIcon>

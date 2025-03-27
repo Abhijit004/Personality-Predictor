@@ -20,12 +20,10 @@ export const AuthProvider = ({ children }) => {
     };
 
     const handleLogin = (userData) => {
-        setUserLoad(true)
         console.log("user login successful");
         setUser(userData);
         showAlert(`Welcome, ${userData.role} ${userData.name.split(" ")[0]}`, "success");
         setProfileStatus(userData.mbti ? true : false);
-        setUserLoad(false)
     };
 
     const handleLogout = async () => {
