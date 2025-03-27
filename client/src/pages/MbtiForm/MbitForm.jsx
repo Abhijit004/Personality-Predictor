@@ -13,6 +13,9 @@ import {
     Stack,
     AlertTitle,
 } from "@mui/material";
+import { updateMember } from "../../utils/Auth";
+import { useAuth } from "../../AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const LongTextForm = () => {
     const [formData, setFormData] = useState({
@@ -26,6 +29,10 @@ const LongTextForm = () => {
         whatDoYouLove: false,
         randomQuestion: false,
     });
+
+    const { user } = useAuth();
+    const [loading, setLoading] = useState(false);
+    const navigate  = useNavigate();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -54,14 +61,32 @@ const LongTextForm = () => {
         return !Object.values(newErrors).some((error) => error);
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         if (validateForm()) {
-            // Form is valid, proceed with submission
-            console.log("Form submitted:", formData);
-            alert("Form submitted successfully!");
-            // Here you would typically send the data to an API
+            try {
+                // Form is valid, proceed with submission
+                setLoading(true);
+                console.log("Form submitted:", formData);
+                const text = formData.howAreYou + " " + formData.randomQuestion + " " + formData.whatDoYouLove; // text to send to backend.
+
+                const res = await updateMember({ text: text, _id: user._id });
+                if (res.status === 200) {
+                    alert("Data submitted successfully!");
+                    console.log(res.data);
+                    navigate('/dashboard')
+                } else {
+                    alert("Some error occured.");
+                    console.log(res.data);
+                }
+                alert("Form submitted successfully!");
+                // Here you would typically send the data to an API
+            } catch (err) {
+                console.log(err);
+            } finally {
+                setLoading(false);
+            }
         } else {
             console.log("Form validation failed");
         }
