@@ -30,6 +30,7 @@ import { useGoogleLogin } from "@react-oauth/google";
 import { useAuth } from "../../AuthContext";
 import { useNavigate } from "react-router-dom";
 import { authWithGoogle } from "../../utils/Auth";
+import { ThemeSwitcher } from "@toolpad/core/DashboardLayout";
 
 import "./AccountMenu.css";
 
@@ -71,7 +72,7 @@ export default function AccountMenu() {
     };
 
     return (
-        <Box className="accountMent">
+        <Box className="accountMent" sx = {{display: 'flex', gap: 1}}>
             <Box sx={{ display: "flex", alignItems: "center", textAlign: "center" }}>
                 <Tooltip title="Account">
                     <Badge badgeContent={user && !user?.college ? 1 : 0} color="warning">
@@ -196,6 +197,7 @@ export default function AccountMenu() {
                     </MenuItem>
                 )}
             </Menu>
+            <ThemeSwitcher />
         </Box>
     );
 }
