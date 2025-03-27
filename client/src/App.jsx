@@ -4,6 +4,10 @@ import { createTheme, ThemeProvider } from "@mui/material";
 import AllRoutes from "./Routes";
 import { BrowserRouter } from "react-router-dom";
 import { AuthProvider } from "./AuthContext";
+import { GoogleOAuthProvider } from "@react-oauth/google";
+
+const client_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID
+
 
 export const appTheme = createTheme({
     cssVariables: {
@@ -32,7 +36,7 @@ export const appTheme = createTheme({
 
 function App() {
     return (
-        // <GoogleOAuthProvider clientId={client_ID}>
+        <GoogleOAuthProvider clientId={client_ID}>
             <ThemeProvider
                 theme={appTheme}
             >
@@ -43,7 +47,7 @@ function App() {
                     </BrowserRouter>
                 </AuthProvider>
             </ThemeProvider>
-        // </GoogleOAuthProvider>
+        </GoogleOAuthProvider>
     );
 }
 

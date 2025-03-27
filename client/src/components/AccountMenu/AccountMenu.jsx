@@ -26,10 +26,10 @@ import {
     LoginRounded,
     ArrowRight,
 } from "@mui/icons-material";
-// import { useGoogleLogin } from "@react-oauth/google";
-// import { authWithGoogle } from "../../services/authApi";
+import { useGoogleLogin } from "@react-oauth/google";
 import { useAuth } from "../../AuthContext";
 import { useNavigate } from "react-router-dom";
+import { authWithGoogle } from "../../utils/Auth";
 
 import "./AccountMenu.css";
 
