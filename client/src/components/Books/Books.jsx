@@ -1,60 +1,50 @@
 import React from "react";
-import Grid from "@mui/material/Grid";
-import Paper from "@mui/material/Paper";
-import { Box } from "@mui/material";
+import { Card, Divider, Box } from "@mui/material";
+import { BookSmall, BookMain } from "../BookCard/BookCard";
+// Book	Author	Description	Genres	Avg_Rating	Num_Ratings	URL
+const book = {
+    Book: "The Shawshank Redemption",
+    Avg_Rating: 9.3,
+    Author: "Frank Darabont",
+    Num_Ratings: 2500000,
+    Description:
+        "Two imprisoned men bond over a number of years Two imprisoned men bond over a number of years Two imprisoned men bond over a number of years...",
+    Genres: ["Action", "Drama", "Adventure", "Thriller"],
+};
+// movie_id	movie_name	year	certificate	runtime	genre	rating	description	director	director_id	star	star_id	votes	gross(in $)
 
-const BoxItem = ({ number }) => (
-    <Paper
-        elevation={3}
-        sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontSize: 20,
-            fontWeight: "bold",
-            height: 70,
-            bgcolor: number === 1 ? "primary.main" : "secondary.main",
-            color: "white",
-            width: 600/number
-        }}
-    >
-        {number}
-    </Paper>
-);
+/* tt9114286	Black Panther: Wakanda Forever	2022	PG-13	161 min	Action, Adventure, Drama	6.9	The people of Wakanda fight to protect their home from intervening world powers as they mourn the death of King T'Challa.	Ryan Coogler	/name/nm3363032/	"Letitia Wright, 
+Lupita Nyong'o, 
+Danai Gurira, 
+Winston Duke"	/name/nm4004793/,/name/nm2143282/,/name/nm1775091/,/name/nm6328300/	204835*/
 
-export default function ResponsiveGrid() {
+const Books = () => {
+    const t = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     return (
-        <Grid container spacing={2}>
-            {/* Biggest Box */}
-            <Grid size="auto" xs={12} md={6}>
-                <BoxItem number={1} />
-            </Grid>
-
-            {/* Two Medium Boxes */}
-            <Grid size="auto" xs={12} sm={6}>
-                <BoxItem number={2} />
-            </Grid>
-            <Grid size="auto" xs={12} sm={6}>
-                <BoxItem number={3} />
-            </Grid>
-
-            {/* Three Smaller Boxes */}
-            <Grid size="auto" xs={12} sm={4}>
-                <BoxItem number={4} />
-            </Grid>
-            <Grid size="auto" xs={12} sm={4}>
-                <BoxItem number={5} />
-            </Grid>
-            <Grid size="auto" xs={12} sm={4}>
-                <BoxItem number={6} />
-            </Grid>
-
-            {/* Smallest Boxes: 7-18 */}
-            {Array.from({ length: 12 }, (_, i) => (
-                <Grid size="auto" xs={6} sm={3} md={2} key={i + 7}>
-                    <BoxItem number={i + 7} />
-                </Grid>
-            ))}
-        </Grid>
+        <Card elevation={0}>
+            <BookMain book={book} />
+            <Divider sx={{ my: 1.5 }} />
+            More Books that you make like
+            <Box
+                sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    mt: 1,
+                    gap: 1.5,
+                    flexWrap: "wrap",
+                    "& > *": {
+                        minWidth: 300,
+                        flexGrow: 1,
+                        flexBasis: 300,
+                    },
+                }}
+            >
+                {t.map((e, i) => (
+                    <BookSmall book={book} />
+                ))}
+            </Box>
+        </Card>
     );
-}
+};
+
+export default Books;

@@ -27,7 +27,7 @@ function App() {
                 theme={appTheme}
             >
                 {/* <AuthProvider> */}
-                <Navbar />
+                {/* <Navbar /> */}
                     <BrowserRouter>
                         <AllRoutes />
                     </BrowserRouter>
