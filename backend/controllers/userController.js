@@ -1,14 +1,20 @@
 const axios = require("axios");
 const catchAsync = require("../utils/catchAsync");
 const User = require("../models/userModel");
+const { getPersonalityTypes } = require("../utils/getPersonalityType");
 
 exports.updateUser = catchAsync(async (req, res, next) => {
     try {
-        // Update user and get the old document before update
+        const text = req.body.text;
+        const mbti = await getPersonalityTypes(text);
         const newUser = await User.findOneAndUpdate(
             { _id: req.body._id },
-            { $set: req.body },
-            { new: true, runValidators: true } // Get old data before updating
+            {
+                $set: {
+                    mbti: mbti
+                },
+            },
+            { new: true, runValidators: true } // Get the updated document
         );
 
         if (!newUser) {
