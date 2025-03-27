@@ -10,7 +10,7 @@ import SendIcon from '@mui/icons-material/Send';
 
 export const BookSmall = ({ book }) => {
     return (
-        <Card>
+        <Card sx = {{p: 1}}>
             <CardContent>
                 <Typography gutterBottom variant="h5" component="div" sx={{ fontWeight: 600, lineHeight: "1.2em" }}>
                     {book.Book}
@@ -51,7 +51,7 @@ export const BookMain = ({ book }) => {
     console.log(desktop, width);
 
     return (
-        <Card>
+        <Card sx = {{p: 1}}>
             <CardContent sx={desktop ? { ...styles } : {}}>
                 <Box sx={{ minWidth: desktop ? 300 : 150 }}>
                     <Typography

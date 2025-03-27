@@ -15,6 +15,8 @@ import PeopleIcon from "@mui/icons-material/People"; // For Friends
 import SportsEsportsIcon from "@mui/icons-material/SportsEsports"; // For Leisure
 import StarIcon from "@mui/icons-material/Star"; // For Recommendations Header
 import PersonSearchIcon from "@mui/icons-material/PersonSearch"; // For "People You May Like" header
+import AccountMenu from "../../components/AccountMenu/AccountMenu";
+import DashboardHome from "../../components/DashboardHome/DashboardHome";
 
 const demoTheme = createTheme({
     cssVariables: {
@@ -51,21 +53,14 @@ const NAVIGATION = [
         icon: <StarIcon />, // Added relevant icon for "Recommendations"
     },
     {
-        segment: "leisure",
-        title: "Leisure",
-        icon: <SportsEsportsIcon />, // Changed to a more fitting icon
-        children: [
-            {
-                segment: "books",
-                title: "Books",
-                icon: <MenuBookIcon />, // More appropriate for Books
-            },
-            {
-                segment: "movies",
-                title: "Movies",
-                icon: <MovieIcon />, // More appropriate for Movies
-            },
-        ],
+        segment: "books",
+        title: "Books",
+        icon: <MenuBookIcon />, // More appropriate for Books
+    },
+    {
+        segment: "movies",
+        title: "Movies",
+        icon: <MovieIcon />, // More appropriate for Movies
     },
     {
         kind: "divider",
@@ -81,7 +76,6 @@ const NAVIGATION = [
         icon: <PeopleIcon />, // More appropriate than LayersIcon
     },
 ];
-
 
 function useDemoRouter(initialPath) {
     const [pathname, setPathname] = React.useState(initialPath);
@@ -112,14 +106,17 @@ export default function Dashboard(props) {
         switch (router.pathname) {
             case "/aboutmbti":
                 return <AboutMyMBTI />;
-            case "/leisure/books":
+            case "/books":
                 return <Books />;
-            case "/leisure/movies":
+            case "/movies":
                 return <Movies />;
             case "/Friends":
                 return <Friends />;
+            case "/":
+            case "/dashboard":
+                return <DashboardHome />
             default:
-                return "No Route to this";
+                return `No Route to this ${router.pathname}` ;
         }
     }
 
@@ -138,10 +135,13 @@ export default function Dashboard(props) {
                 homeUrl: "/",
             }}
         >
-            <DashboardLayout>
-                <PageContainer>
-                    {renderPage()}
-                </PageContainer>
+            <DashboardLayout
+                slots={{
+                    toolbarActions: () => <AccountMenu />,
+                    // sidebarFooter: SidebarFooter,
+                }}
+            >
+                <PageContainer>{renderPage()}</PageContainer>
             </DashboardLayout>
         </AppProvider>
     );
