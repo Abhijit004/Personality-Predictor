@@ -3,10 +3,9 @@ import { createTheme, styled } from "@mui/material/styles";
 import { AppProvider } from "@toolpad/core/AppProvider";
 import { DashboardLayout } from "@toolpad/core/DashboardLayout";
 import { PageContainer } from "@toolpad/core/PageContainer";
-import Grid from "@mui/material/Grid";
 import Books from "../../components/Books/Books";
 import Movies from "../../components/Movies/Movies";
-import AboutMyMBTI from "../../components/Navbar/AboutMyMBTI/AboutMyMBTI";
+import AboutMyMBTI from "../../components/AboutMyMBTI/AboutMyMBTI";
 import Friends from "../../components/Friends/Friends";
 
 import DashboardIcon from "@mui/icons-material/Dashboard";
@@ -134,49 +133,14 @@ export default function Dashboard(props) {
             window={demoWindow}
             theme={demoTheme}
             branding={{
-                logo: <img src="https://mui.com/static/logo.png" alt="MUI logo" />,
-                title: "VibeSphere",
+                logo: <img src={"/icon.svg"} alt="VibeSphere" />,
+                title: "",
                 homeUrl: "/",
             }}
         >
             <DashboardLayout>
                 <PageContainer>
-                    {renderPage()} {/* Renders the correct page dynamically */}
-                    <Grid container spacing={1}>
-                        <Grid size={5} />
-                        <Grid size={12}>
-                            <Skeleton height={14} />
-                        </Grid>
-                        <Grid size={12}>
-                            <Skeleton height={14} />
-                        </Grid>
-                        <Grid size={4}>
-                            <Skeleton height={100} />
-                        </Grid>
-                        <Grid size={8}>
-                            <Skeleton height={100} />
-                        </Grid>
-
-                        <Grid size={12}>
-                            <Skeleton height={150} />
-                        </Grid>
-                        <Grid size={12}>
-                            <Skeleton height={14} />
-                        </Grid>
-
-                        <Grid size={3}>
-                            <Skeleton height={100} />
-                        </Grid>
-                        <Grid size={3}>
-                            <Skeleton height={100} />
-                        </Grid>
-                        <Grid size={3}>
-                            <Skeleton height={100} />
-                        </Grid>
-                        <Grid size={3}>
-                            <Skeleton height={100} />
-                        </Grid>
-                    </Grid>
+                    {renderPage()}
                 </PageContainer>
             </DashboardLayout>
         </AppProvider>

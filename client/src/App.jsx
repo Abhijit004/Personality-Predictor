@@ -1,5 +1,4 @@
 import "./App.css";
-import Navbar from "./components/Navbar/Navbar";
 import { createTheme, ThemeProvider } from "@mui/material";
 import AllRoutes from "./Routes";
 import { BrowserRouter } from "react-router-dom";
@@ -41,7 +40,6 @@ function App() {
                 theme={appTheme}
             >
                 <AuthProvider>
-                <Navbar />
                     <BrowserRouter>
                         <AllRoutes />
                     </BrowserRouter>

@@ -1,8 +1,9 @@
-import React, { createContext, useContext, useState } from "react";
+import React, { createContext, useContext, useState, useEffect } from "react";
 // import { logout } from "./api";
 import { Snackbar, Alert } from "@mui/material";
 
 const AuthContext = createContext();
+import { checkStatus } from "./utils/Auth";
 
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
@@ -36,6 +37,22 @@ export const AuthProvider = ({ children }) => {
             showAlert(err.message, "error");
         }
     };
+
+    const isLoggedIn = async () => {
+        try {
+            const res = await checkStatus();
+            if (!res.data.user) return;
+            console.log(res?.data?.message);
+            handleLogin(res?.data?.user);
+        } catch (err) {
+            console.log("status check fail");
+            console.log(err.message);
+        }
+    };
+
+    useEffect(() => {
+        isLoggedIn();
+    }, []);
 
     return (
         <AuthContext.Provider value={{ user, handleLogin, handleLogout, profileStatus, setProfileStatus, userLoad, setUserLoad }}>
