@@ -26,10 +26,10 @@ const Hero = () => {
                     flexWrap: "wrap"
                 }}
             >
-                <Typography variant="h2" sx={{ lineHeight: "1em", fontSize: "clamp(2.5rem, 1.1667rem + 5.3333vw, 5rem)", whiteSpace: "nowrap" }}>
+                <Typography variant="h2" sx={{ lineHeight: "1em", fontSize: "clamp(2.5rem, 1.1667rem + 5.3333vw, 5rem)", whiteSpace: "nowrap", fontWeight: 500 }}>
                     Your style.
                 </Typography>
-                <Typography variant="h2" sx={{ lineHeight: "1em", fontSize: "clamp(2.5rem, 1.1667rem + 5.3333vw, 5rem)", whiteSpace: "nowrap" }} color="var(--mui-orange)">
+                <Typography variant="h2" sx={{ lineHeight: "1em", fontSize: "clamp(2.5rem, 1.1667rem + 5.3333vw, 5rem)", whiteSpace: "nowrap", fontWeight: 500 }} color="var(--mui-blue)">
                     Your vibe.
                 </Typography>
             </Box>
