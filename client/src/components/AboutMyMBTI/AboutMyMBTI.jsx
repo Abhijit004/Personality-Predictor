@@ -2,7 +2,7 @@ import { Box, Card, Grid, CardContent, Typography, Chip, Divider } from "@mui/ma
 import React from "react";
 import { InfoCard, MBTICard } from "../MBTICards/MBTICards";
 
-const AboutMyMBTI = () => {
+const AboutMyMBTI = ({mbti}) => {
     return (
         <Grid container spacing={2} sx={{ maxWidth: 1000 }}>
             <Grid container spacing={2}>

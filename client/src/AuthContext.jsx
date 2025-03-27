@@ -23,7 +23,7 @@ export const AuthProvider = ({ children }) => {
     const handleLogin = (userData) => {
         console.log("user login successful");
         setUser(userData);
-        showAlert(`Welcome, ${userData.role} ${userData.name.split(" ")[0]}`, "success");
+        showAlert(`Welcome, ${userData.name.split(" ")[0]}`, "success");
         setProfileStatus(userData.mbti ? true : false);
     };
 
@@ -42,7 +42,7 @@ export const AuthProvider = ({ children }) => {
         try {
             const res = await checkStatus();
             if (!res.data.user) return;
-            console.log(res?.data?.message);
+            console.log(res?.data);
             handleLogin(res?.data?.user);
         } catch (err) {
             console.log("status check fail");

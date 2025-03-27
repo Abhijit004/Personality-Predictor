@@ -75,7 +75,7 @@ export default function AccountMenu() {
         <Box className="accountMent" sx = {{display: 'flex', gap: 1}}>
             <Box sx={{ display: "flex", alignItems: "center", textAlign: "center" }}>
                 <Tooltip title="Account">
-                    <Badge badgeContent={user && !user?.college ? 1 : 0} color="warning">
+                    <Badge badgeContent={user && !user?.mbti.length ? 1 : 0} color="warning">
                         {user ? (
                             <IconButton
                                 onClick={handleClick}
@@ -154,7 +154,7 @@ export default function AccountMenu() {
                             <Person fontSize="small" />
                         </ListItemIcon>
                         My Profile{" "}
-                        {!user?.college && (
+                        {!user?.mbti.length && (
                             <Chip
                                 icon={<Warning />}
                                 label="Complete your profile"

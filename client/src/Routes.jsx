@@ -1,24 +1,23 @@
 import React from "react";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes, Navigate, useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import Homepage from "./pages/Homepage/Homepage";
-import Dashboard from "./pages/Dashboard/Dashboard";
-import MbitForm from "./pages/MbtiForm/MbitForm";
+import { useAuth } from "./AuthContext";
 
 const AllRoutes = () => {
+    const { user } = useAuth();
     const location = useLocation();
 
     useEffect(() => {
         window.scrollTo(0, 0);
     }, [location]);
+
     return (
         <Routes>
-            <Route path="/" element={ <Homepage />} />
-            {/* <Route path="/dashboard" element={ <Dashboard />} /> */}
-            <Route path="/profile" element={ <MbitForm />} />
-            {/* <Route element={<ProtectedRoute />}>
-                <Route path="/dashboard" element={<Dashboard />} />
-            </Route> */}
+            {/* Public Route */}
+            {1 && <Route path="/" element={<Homepage />} />}
+            {/* Redirect to correct page if user tries accessing an invalid route */}
+            <Route path="*" element={<Navigate to="/" />} />
         </Routes>
     );
 };

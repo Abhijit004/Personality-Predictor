@@ -75,7 +75,7 @@ const LongTextForm = () => {
                 if (res.status === 200) {
                     showAlert("Data saved successfully!", "success");
                     console.log(res.data);
-                    navigate("/dashboard");
+                    window.location.reload()
                 } else {
                     showAlert("Error while fetching MBTI Type and Saving Data", "error");
                     console.log(res.data);

@@ -1,0 +1,66 @@
+{
+    "INFP": {
+        "types": ["Idealistic", "Creative", "Empathetic", "Reserved"],
+        "description": "INFPs are imaginative idealists guided by strong values. They seek harmony, appreciate beauty, and deeply understand others. Quietly passionate, they champion causes they believe in while maintaining a gentle, open-minded demeanor."
+    },
+    "ENFP": {
+        "types": ["Enthusiastic", "Charismatic", "Spontaneous", "Curious"],
+        "description": "ENFPs are energetic visionaries who love exploring possibilities. They inspire others with optimism and creativity. Highly social, they thrive on connections but may struggle with focus, always chasing new ideas."
+    },
+    "INFJ": {
+        "types": ["Insightful", "Compassionate", "Determined", "Private"],
+        "description": "INFJs are rare, empathetic strategists with a knack for foresight. They advocate for change quietly but fiercely. Though reserved, they form deep bonds and pursue meaningful impact."
+    },
+    "ENFJ": {
+        "types": ["Persuasive", "Loyal", "Organized", "Warm"],
+        "description": "ENFJs are natural mentors who uplift others. Charismatic and responsible, they excel at motivating teams. They crave harmony and may neglect their own needs while caring for others."
+    },
+    "INTJ": {
+        "types": ["Strategic", "Independent", "Analytical", "Visionary"],
+        "description": "INTJs are logical architects of systems and ideas. They value competence, plan meticulously, and challenge norms. Reserved but confident, they pursue long-term goals with relentless focus."
+    },
+    "ENTJ": {
+        "types": ["Decisive", "Assertive", "Goal-Oriented", "Direct"],
+        "description": "ENTJs are bold leaders who thrive on efficiency. They organize people/resources to execute visions. Competitive and outspoken, they excel in crises but may overlook emotions."
+    },
+    "INTP": {
+        "types": ["Innovative", "Logical", "Reserved", "Flexible"],
+        "description": "INTPs are curious thinkers who dissect theories for fun. They love puzzles, debate principles, and resist routine. Absent-minded at times, they prioritize intellectual exploration over practicality."
+    },
+    "ENTP": {
+        "types": ["Debater", "Inventive", "Adaptable", "Charming"],
+        "description": "ENTPs are quick-witted brainstormers who challenge status quos. They generate ideas effortlessly but may struggle to finish projects. Playfully argumentative, they enjoy intellectual sparring."
+    },
+    "ISTP": {
+        "types": ["Practical", "Risk-Taker", "Observant", "Independent"],
+        "description": "ISTPs are hands-on troubleshooters who live in the moment. Masters of tools/mechanics, they act calmly in crises. They resist constraints and prefer learning through action."
+    },
+    "ESTP": {
+        "types": ["Energetic", "Persuasive", "Realistic", "Bold"],
+        "description": "ESTPs are thrill-seekers who thrive on spontaneity. Charming and resourceful, they think on their feet. They excel in sales or sports but may ignore long-term consequences."
+    },
+    "ISFP": {
+        "types": ["Artistic", "Gentle", "Adaptable", "Sensitive"],
+        "description": "ISFPs are quiet artists who value authenticity. They express themselves through actions rather than words. Though easygoing, they fiercely protect their personal freedom and values."
+    },
+    "ESFP": {
+        "types": ["Playful", "Sociable", "Supportive", "Observant"],
+        "description": "ESFPs are lively entertainers who love the spotlight. They bring fun to gatherings and focus on tangible experiences. Impulsive at times, they struggle with abstract planning."
+    },
+    "ISTJ": {
+        "types": ["Reliable", "Detail-Oriented", "Traditional", "Practical"],
+        "description": "ISTJs are dutiful organizers who uphold order. They follow rules, deliver on promises, and distrust flakiness. Meticulous and private, they excel in structured environments."
+    },
+    "ESTJ": {
+        "types": ["Efficient", "Assertive", "Structured", "Responsible"],
+        "description": "ESTJs are no-nonsense administrators who enforce systems. They value discipline, hierarchy, and practicality. While excellent at execution, they may dismiss unconventional ideas."
+    },
+    "ISFJ": {
+        "types": ["Caring", "Thorough", "Loyal", "Modest"],
+        "description": "ISFJs are nurturing protectors who remember details others miss. They serve quietly, avoiding drama. Though humble, they’re the backbone of families/teams, ensuring stability."
+    },
+    "ESFJ": {
+        "types": ["Sociable", "Conscientious", "Warm", "Cooperative"],
+        "description": "ESFJs are harmonizers who prioritize others’ needs. They host gatherings, remember birthdays, and foster community. They struggle with criticism and crave appreciation for their efforts."
+    }
+}

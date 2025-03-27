@@ -81,11 +81,13 @@ const NAVIGATION = [
 
 const Homepage = () => {
     const { user, handleLogin } = useAuth();
+    console.log(user);
+    
     const router = useDemoRouter("/");
-    function renderDash() {
+    function renderDash(mbti) {
         switch (router.pathname) {
             case "/aboutmbti":
-                return <AboutMyMBTI />;
+                return <AboutMyMBTI mbti={mbti}/>;
             case "/books":
                 return <Books />;
             case "/movies":
@@ -100,7 +102,7 @@ const Homepage = () => {
         }
     }
     function renderPage() {
-        if (user) return user.mbti ? renderDash() : <MbtiForm />;
+        if (user) return user.mbti.length ? renderDash(user.mbti[0]) : <MbtiForm />;
         return <Hero />;
     }
 
@@ -116,15 +118,13 @@ const Homepage = () => {
             router={router}
         >
             <DashboardLayout
-                // hideNavigation = {!user?.mbti}
+                hideNavigation={!user?.mbti.length}
                 slots={{
                     toolbarActions: () => <AccountMenu />,
                     // sidebarFooter: SidebarFooter,
                 }}
             >
-                <PageContainer>
-                    <PageContainer>{renderPage()}</PageContainer>
-                </PageContainer>
+                <PageContainer>{renderPage()}</PageContainer>
             </DashboardLayout>
         </AppProvider>
     );

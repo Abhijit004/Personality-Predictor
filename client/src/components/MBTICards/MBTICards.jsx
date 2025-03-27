@@ -1,7 +1,7 @@
 import { Box, Card, Grid, CardContent, Typography, Chip, Divider } from "@mui/material";
 import React from "react";
 
-export const MBTICard = () => {
+export const MBTICard = ({mbti}) => {
     return (
         <Card elevation={5} sx={{ p: 0.5}}>
             <CardContent sx={{ display: "flex", gap: 2 }} className="mbti-card">
