@@ -35,7 +35,7 @@ body {
 
 *::-webkit-scrollbar-thumb {
   width: 2px !important;
-  background: var(--mui-purple);
+  background: var(--mui-blue);
 }
 *::-webkit-scrollbar-button,
 *::-webkit-scrollbar-corner {

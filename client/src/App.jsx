@@ -5,8 +5,7 @@ import { BrowserRouter } from "react-router-dom";
 import { AuthProvider } from "./AuthContext";
 import { GoogleOAuthProvider } from "@react-oauth/google";
 
-const client_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID
-
+const client_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID;
 
 export const appTheme = createTheme({
     cssVariables: {
@@ -36,9 +35,7 @@ export const appTheme = createTheme({
 function App() {
     return (
         <GoogleOAuthProvider clientId={client_ID}>
-            <ThemeProvider
-                theme={appTheme}
-            >
+            <ThemeProvider theme={appTheme}>
                 <AuthProvider>
                     <BrowserRouter>
                         <AllRoutes />
