@@ -32,7 +32,7 @@ const Movies = () => {
                     display: "flex",
                     alignItems: "center",
                     mt: 1,
-                    gap: 1.5,
+                    gap: 2,
                     flexWrap: "wrap",
                     "& > *": {
                         minWidth: 300,

@@ -55,7 +55,7 @@ export const AuthProvider = ({ children }) => {
     }, []);
 
     return (
-        <AuthContext.Provider value={{ user, handleLogin, handleLogout, profileStatus, setProfileStatus, userLoad, setUserLoad }}>
+        <AuthContext.Provider value={{ user, handleLogin, handleLogout, profileStatus, setProfileStatus, userLoad, setUserLoad, showAlert }}>
             {children}
 
             {/* MUI Snackbar for notifications */}

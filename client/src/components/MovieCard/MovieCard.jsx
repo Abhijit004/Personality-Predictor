@@ -8,7 +8,7 @@ import './MovieCard.css'
 
 export const MovieSmall = ({ movie }) => {
     return (
-        <Card>
+        <Card sx = {{p: 1}}>
             <CardContent>
                 <Typography gutterBottom variant="h5" component="div" sx={{ fontWeight: 600, lineHeight: "1.2em" }}>
                     {movie.title}
@@ -41,7 +41,7 @@ export const MovieMain = ({ movie }) => {
     console.log(desktop, width);
 
     return (
-        <Card>
+        <Card sx = {{p: 1}}>
             <CardContent sx={desktop ? { ...styles } : {}}>
                 <Box sx={{ minWidth: desktop ? 300 : 150 }}>
                     <Typography
