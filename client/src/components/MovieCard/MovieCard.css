@@ -1,0 +1,33 @@
+.movie-card-wrapper {
+    background: var(--mui-orange) !important;
+    position: relative;
+}
+
+.movie-card-wrapper * {
+    z-index: 3;
+}
+
+.movie-card-wrapper::before {
+    content: "";
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    background: #ff5900;
+    border-radius: 50%;
+    top: -100px;
+    right: -110px;
+    z-index: 2;
+}
+
+.movie-card-wrapper::after {
+    content: "";
+    position: absolute;
+    width: 210px;
+    height: 210px;
+    background: #ff5900;
+    border-radius: 50%;
+    top: -125px;
+    right: 100px;
+    z-index: 1;
+    opacity: 0.5;
+}

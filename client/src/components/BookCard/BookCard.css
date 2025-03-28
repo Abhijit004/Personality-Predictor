@@ -1,39 +1,34 @@
-.mbti-card-wrapper {
-    background: var(--mui-purple) !important;
+.book-card-wrapper {
+    background: var(--mui-blue) !important;
     position: relative;
 }
 
-.mbti-card-wrapper * {
+.book-card-wrapper * {
     z-index: 3;
 }
 
-.mbti-card-wrapper::before {
+.book-card-wrapper::before {
     content: "";
     position: absolute;
     width: 320px;
     height: 320px;
-    background: rgb(69, 39, 160);
+    background: #1565c0;
     border-radius: 50%;
     top: -100px;
     right: -110px;
     z-index: 2;
+    opacity: 0.7;
 }
 
-.mbti-card-wrapper::after {
+.book-card-wrapper::after {
     content: "";
     position: absolute;
     width: 210px;
     height: 210px;
-    background: rgb(69, 39, 160);
+    background: rgb(21, 101, 192);
     border-radius: 50%;
     opacity: 0.5;
     top: -125px;
     right: 100px;
     z-index: 1;
-}
-
-@media only screen and (max-width: 940px) {
-    .mbti-card {
-        flex-wrap: wrap;
-    }
 }

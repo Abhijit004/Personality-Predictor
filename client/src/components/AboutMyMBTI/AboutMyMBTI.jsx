@@ -6,6 +6,7 @@ import cognitive from "../../assets/MBTI/congitiveFunc.json"
 import mapping from "../../assets/MBTI/MBTIfunctionStacks.json"
 
 const AboutMyMBTI = ({mbti}) => {
+    mbti = "INFP"
     const mbtiType = {name: mbti, data: mbtiData[mbti]}
     const [a, b, c, d] = mapping[mbti]
     return (

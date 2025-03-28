@@ -15,7 +15,7 @@ export const MovieSmall = ({ movie }) => {
                 </Typography>
                 <Divider sx = {{my: 1.5}}/>
                 <Box sx={{ display: "flex", alignItems: "center", mt: 1 }}>
-                    <Rating name="read-only" value={movie.rating} precision={0.5} readOnly size="small" />
+                    <Rating name="read-only" value={movie.rating} precision={0.5} readOnly size="small" sx={{color: "var(--mui-orange)"}}/>
                     <Typography variant="body2" color="text.secondary" sx={{ ml: 1 }}>
                         {movie.rating}
                     </Typography>
@@ -26,7 +26,7 @@ export const MovieSmall = ({ movie }) => {
                 <Divider sx = {{my: 1.5}}/>
                 <Box sx={{ display: "flex", alignItems: "center", mt: 2, gap: 0.5, width: "100%", flexWrap: "wrap" }}>
                     {movie.genre.map((tag, i) => (
-                        <Chip label={tag} size="small" color="primary" key={i} />
+                        <Chip label={tag} size="small" sx={{bgcolor: 'var(--mui-orange)', color: "#fff"}} key={i} />
                     ))}
                 </Box>
             </CardContent>
@@ -41,7 +41,7 @@ export const MovieMain = ({ movie }) => {
     console.log(desktop, width);
 
     return (
-        <Card sx = {{p: 1}}>
+        <Card sx = {{p: 1}} className="movie-card-wrapper">
             <CardContent sx={desktop ? { ...styles } : {}}>
                 <Box sx={{ minWidth: desktop ? 300 : 150 }}>
                     <Typography
@@ -62,8 +62,8 @@ export const MovieMain = ({ movie }) => {
                     </Box>
                 </Box>
 
-                {1 && <Divider sx={{ my: 1.5 }} />}
-                {desktop && <Divider orientation="vertical" variant="middle" flexItem />}
+                {!desktop && <Divider sx={{ my: 1.5, border: "0.5px solid rgba(255, 255, 255, 50%)" }} />}
+                {desktop && <Divider orientation="vertical" variant="middle" flexItem sx={{border: "0.5px solid rgba(255, 255, 255, 50%)"}} />}
 
                 <Box>
                     <Box sx={{ display: "flex", alignItems: "center", width: "100%", flexWrap: "wrap" }}>
@@ -73,6 +73,7 @@ export const MovieMain = ({ movie }) => {
                             precision={0.5}
                             readOnly
                             size="small"
+                            sx={{color: "#fff"}}
                         />
                     </Box>
                     <Typography variant="body2" color="text.secondary">
@@ -82,10 +83,10 @@ export const MovieMain = ({ movie }) => {
                         sx={{ display: "flex", alignItems: "center", mt: 1, gap: 0.5, width: "100%", flexWrap: "wrap" }}
                     >
                         {movie.genre.map((tag, i) => (
-                            <Chip label={tag} size="small" color="primary" key={i} />
+                            <Chip label={tag} size="small" sx={{bgcolor: "#bf360c", color: "#fff"}} key={i} />
                         ))}
                     </Box>
-                    <Divider sx = {{my: 1.5}}/>
+                    <Divider sx = {{my: 1.5, border: "0.5px solid rgba(255, 255, 255, 50%)"}}/>
                     <Typography variant="body1" color="text.primary" sx={{ mt: 2 }}>
                         {movie.description}
                     </Typography>
