@@ -92,8 +92,8 @@ export default function AccountMenu() {
                         ) : (
                             <Button
                                 onClick={handleClick}
-                                variant="contained"
                                 startIcon={userLoad ? <CircularProgress size={20} color="inherit" /> : null}
+                                sx={{background: 'linear-gradient(90deg, var(--mui-blue), var(--mui-purple))', color: "#fff"}}
                             >
                                 Login
                             </Button>

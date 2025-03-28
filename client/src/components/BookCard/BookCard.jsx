@@ -6,14 +6,15 @@ import { Chip, Rating, Divider, Button } from "@mui/material";
 import Box from "@mui/material/Box";
 import SendIcon from '@mui/icons-material/Send';
 import './BookCard.css'
+import { blue } from "@mui/material/colors";
 
 // Book	Author	Description	Genres	Avg_Rating	Num_Ratings	URL
 
 export const BookSmall = ({ book }) => {
     return (
-        <Card sx = {{p: 1}}>
+        <Card sx = {{p: 1}} className="book-small-wrapper">
             <CardContent>
-                <Typography gutterBottom variant="h5" component="div" sx={{ fontWeight: 600, lineHeight: "1.2em" }}>
+                <Typography gutterBottom variant="h5" component="div" sx={{ fontWeight: 600, lineHeight: "1.2em", position: "relative" }}>
                     {book.Book}
                 </Typography>
                 <Box sx={{ display: "flex", alignItems: "center", gap: 0.8 }}>
