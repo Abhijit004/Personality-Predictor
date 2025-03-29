@@ -1,18 +1,16 @@
 from flask import Flask, request, jsonify
-from apscheduler.schedulers.background import BackgroundScheduler
+# from apscheduler.schedulers.background import BackgroundScheduler
 import joblib
 import os
 from dotenv import *
-from services.mongodb_service import push_csv_to_mongodb
 from routes.predict import MBTI_predictor
-from services.fetch_store_movies import get_popular_movies
 
-def update_database():
-    fetched = get_popular_movies()
-    if fetched:
-        push_csv_to_mongodb(fetched, collection_name="popular_movies")
-    else:
-        print("FETCH FAIL")
+# def update_database():
+#     fetched = get_popular_movies()
+#     if fetched:
+#         push_csv_to_mongodb(fetched, collection_name="popular_movies")
+#     else:
+#         print("FETCH FAIL")
 
 # push_csv_to_mongodb(csv_file="top_rated_movies.csv", collection_name="top_rated_movies")
 # push_csv_to_mongodb(csv_file="popular_movies.csv", collection_name="popular_movies")
@@ -46,5 +44,5 @@ def predict():
         return jsonify({"error": str(e)})
 
 if __name__ == '__main__':
-    # app.run(debug=config['debug'] == 'True')
-    app.run(debug=False)
+    app.run(debug=config['debug'] == 'True')
+    # app.run(debug=False)

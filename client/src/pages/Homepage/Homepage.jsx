@@ -85,15 +85,16 @@ const Homepage = () => {
     console.log(user);
     const width = window.innerWidth
 
-    const [popular, setPopular] = useState([]);
+    const [movies, setMovies] = useState([]);
 
     console.log("In movies:");
 
     useEffect(() => {
         const handleGetPopular = async () => {
             const res = await getMovies(user?.mbti[0]);
-            // setPopular(res.data);
-            console.log(res);
+            setMovies(res.data.movies)
+            console.log(res.data.movies[0]);
+
         };
         handleGetPopular();
     }, [user]);
@@ -106,7 +107,7 @@ const Homepage = () => {
             case "/books":
                 return <Books />;
             case "/movies":
-                return <Movies />;
+                return <Movies data={movies} />;
             case "/Friends":
                 return <Friends />;
             case "/":

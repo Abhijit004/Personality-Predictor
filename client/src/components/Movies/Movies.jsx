@@ -21,13 +21,13 @@ Lupita Nyong'o,
 Danai Gurira, 
 Winston Duke"	/name/nm4004793/,/name/nm2143282/,/name/nm1775091/,/name/nm6328300/	204835*/
 
-const Movies = () => {
+const Movies = ({data}) => {
     const t = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     const [selected, setSelected] = useState(0);
     
     return (
         <Card elevation={0}>
-            <MovieMain movie={movie} />
+            <MovieMain movie={data[0]} />
             <Divider sx={{ my: 1.5 }} />
             More Movies that you make like
             <Box
@@ -44,8 +44,8 @@ const Movies = () => {
                     },
                 }}
             >
-                {t.map((e, i) => (
-                    <MovieSmall movie={movie} setSelected={setSelected} key={i} index={i} selected={selected === i} />
+                {data.map((e, i) => (
+                    <MovieSmall movie={e} setSelected={setSelected} key={i} index={i} selected={selected === i} />
                 ))}
             </Box>
         </Card>
