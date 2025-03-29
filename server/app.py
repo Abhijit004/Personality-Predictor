@@ -1,56 +1,50 @@
 from flask import Flask, request, jsonify
+from apscheduler.schedulers.background import BackgroundScheduler
 import joblib
 import os
 from dotenv import *
+from services.mongodb_service import push_csv_to_mongodb
+from routes.predict import MBTI_predictor
+from services.fetch_store_movies import get_popular_movies
+
+def update_database():
+    fetched = get_popular_movies()
+    if fetched:
+        push_csv_to_mongodb(fetched, collection_name="popular_movies")
+    else:
+        print("FETCH FAIL")
+
+# push_csv_to_mongodb(csv_file="top_rated_movies.csv", collection_name="top_rated_movies")
+# push_csv_to_mongodb(csv_file="popular_movies.csv", collection_name="popular_movies")
+
+
 load_dotenv()  # take environment variables
 config = dotenv_values(".env")
+
 app = Flask(__name__)
-model = joblib.load("./models/mbti_model.pkl")
-vectorizer = joblib.load("./models/tfidf_vectorizer.pkl")
-label_encoder = joblib.load("./models/label_encoder.pkl")
-label_to_mbti = label_encoder.inverse_transform(list(range(len(label_encoder.classes_))))
 
+# def ping():
+#     print("Ping Ping!")
 
-
-def MBTI_predictor(text, model, vectorizer):
-    """
-    Predicts the MBTI type for a given text and returns the confidence.
-
-    Args:
-        text (str): The input text.
-        model (LogisticRegression): The trained Logistic Regression model.
-        vectorizer (TfidfVectorizer): The fitted TfidfVectorizer.
-
-    Returns:
-        tuple: A tuple containing the top 3 predicted MBTI types and the corresponding probabilities of that prediction.
-    """
-    text_vectorized = vectorizer.transform([text])
-    probabilities = model.predict_proba(text_vectorized)
-    prob_list = probabilities[0]
-    # predicted_class_index = np.argsort(probabilities[0])[-3:][::-1] #finds the indices
-    predicted_class_index = sorted(range(len(prob_list)), key=lambda i: prob_list[i], reverse=True)[:3]
-
-    predicted_class = [label_to_mbti[pci] for pci in predicted_class_index] #finds the class labels for the indices
-    confidence = [float(prob_list[pci]) for pci in predicted_class_index]
-    
-    print(predicted_class_index)
-
-
-    return predicted_class, confidence
+# scheduler = BackgroundScheduler()
+# # scheduler.add_job(ping, "cron", day=1, hour=0, minute=0)
+# scheduler.add_job(update_database, "interval", minutes=1)
+# scheduler.start()
 
 @app.route("/")
 def home():
-    return "ML Model is Running"
+    return "MBTI Model running. Go to main website to watch."
 
 @app.route("/predict", methods = ["POST"])
 def predict():
     try:
         data = request.json
         text = data['text']
-        classes, confidences = MBTI_predictor(text, model, vectorizer)
+        classes, confidences = MBTI_predictor(text)
         return jsonify({"predictions": classes, "confidences": confidences})
     except Exception as e:
         return jsonify({"error": str(e)})
 
 if __name__ == '__main__':
-    app.run(debug=config['debug'] == 'True')
+    # app.run(debug=config['debug'] == 'True')
+    app.run(debug=False)
