@@ -37,3 +37,7 @@
         flex-wrap: wrap;
     }
 }
+
+.mbti-small-wrapper {
+    background: linear-gradient(var(--mycardoverlay), var(--mycardoverlay)), var(--mui-purple) !important;
+}

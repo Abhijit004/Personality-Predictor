@@ -1,5 +1,5 @@
 import { Box, Card, Grid, CardContent, Typography, Chip, Divider } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import { InfoCard, MBTICard } from "../MBTICards/MBTICards";
 import mbtiData from "../../assets/MBTI/mbti.json"
 import cognitive from "../../assets/MBTI/congitiveFunc.json"
