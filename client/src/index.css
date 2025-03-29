@@ -41,3 +41,14 @@ body {
 *::-webkit-scrollbar-corner {
   display: none;
 }
+.MuiTypography-root {
+  position: relative !important;
+  z-index: 1000 !important;
+}
+
+html[class='dark'] {
+  --mycardoverlay: rgba(0, 0, 0, 0.70)
+}
+html[class='light'] {
+  --mycardoverlay: rgba(255, 255, 255, 0.70)
+}

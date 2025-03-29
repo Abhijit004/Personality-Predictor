@@ -1,5 +1,43 @@
+.mbti-card-wrapper {
+    background: var(--mui-purple) !important;
+    position: relative;
+}
+
+.mbti-card-wrapper * {
+    z-index: 3;
+}
+
+.mbti-card-wrapper::before {
+    content: "";
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    background: rgb(69, 39, 160);
+    border-radius: 50%;
+    top: -100px;
+    right: -110px;
+    z-index: 2;
+}
+
+.mbti-card-wrapper::after {
+    content: "";
+    position: absolute;
+    width: 210px;
+    height: 210px;
+    background: rgb(69, 39, 160);
+    border-radius: 50%;
+    opacity: 0.5;
+    top: -125px;
+    right: 100px;
+    z-index: 1;
+}
+
 @media only screen and (max-width: 940px) {
     .mbti-card {
         flex-wrap: wrap;
     }
+}
+
+.mbti-small-wrapper {
+    background: linear-gradient(var(--mycardoverlay), var(--mycardoverlay)), var(--mui-purple) !important;
 }

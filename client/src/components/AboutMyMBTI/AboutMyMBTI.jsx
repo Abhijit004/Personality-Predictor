@@ -1,11 +1,12 @@
 import { Box, Card, Grid, CardContent, Typography, Chip, Divider } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import { InfoCard, MBTICard } from "../MBTICards/MBTICards";
 import mbtiData from "../../assets/MBTI/mbti.json"
 import cognitive from "../../assets/MBTI/congitiveFunc.json"
 import mapping from "../../assets/MBTI/MBTIfunctionStacks.json"
 
 const AboutMyMBTI = ({mbti}) => {
+    mbti = "INFP"
     const mbtiType = {name: mbti, data: mbtiData[mbti]}
     const [a, b, c, d] = mapping[mbti]
     return (

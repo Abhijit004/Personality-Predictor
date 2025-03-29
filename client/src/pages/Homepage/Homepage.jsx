@@ -103,7 +103,8 @@ const Homepage = () => {
         }
     }
     function renderPage() {
-        if (user) return user.mbti.length ? renderDash(user.mbti[0]) : <MbtiForm />;
+        // if (user) return user.mbti.length ? renderDash(user.mbti[0]) : <MbtiForm />;
+        if (1) return 1 ? renderDash(user?.mbti[0]) : <MbtiForm />;
         return <Hero />;
     }
 
@@ -121,10 +122,9 @@ const Homepage = () => {
             <DashboardLayout
                 disableCollapsibleSidebar = {width >= 1350}
                 defaultSidebarCollapsed
-                hideNavigation={!user?.mbti.length}
+                // hideNavigation={!user?.mbti.length}
                 slots={{
                     toolbarActions: () => <AccountMenu />,
-                    // sidebarFooter: SidebarFooter,
                 }}
             >
                 <PageContainer>{renderPage()}</PageContainer>

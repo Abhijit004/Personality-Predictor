@@ -13,7 +13,7 @@ export const appTheme = createTheme({
     },
     breakpoints: {
         values: {
-            xs: 380,
+            xs: 290,
             sm: 500, // Custom small starts at 500px
             md: 800,
             lg: 1200,
