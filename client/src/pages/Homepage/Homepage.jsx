@@ -135,7 +135,7 @@ const Homepage = () => {
             router={router}
         >
             <DashboardLayout
-                disableCollapsibleSidebar = {width >= 1350}
+                disableCollapsibleSidebar={width >= 1350}
                 defaultSidebarCollapsed
                 hideNavigation={!user?.mbti.length}
                 slots={{
