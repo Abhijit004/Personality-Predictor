@@ -21,6 +21,7 @@ import PeopleIcon from "@mui/icons-material/People"; // For Friends
 import StarIcon from "@mui/icons-material/Star"; // For Recommendations Header
 import PersonSearchIcon from "@mui/icons-material/PersonSearch"; // For "People You May Like" header
 import DashboardHome from "../../components/DashboardHome/DashboardHome";
+import { getMovies } from "../../utils/Auth";
 
 function useDemoRouter(initialPath) {
     const [pathname, setPathname] = React.useState(initialPath);
@@ -84,6 +85,19 @@ const Homepage = () => {
     console.log(user);
     const width = window.innerWidth
 
+    const [popular, setPopular] = useState([]);
+
+    console.log("In movies:");
+
+    useEffect(() => {
+        const handleGetPopular = async () => {
+            const res = await getMovies(user?.mbti[0]);
+            // setPopular(res.data);
+            console.log(res);
+        };
+        handleGetPopular();
+    }, [user]);
+
     const router = useDemoRouter("/");
     function renderDash(mbti) {
         switch (router.pathname) {
@@ -103,8 +117,8 @@ const Homepage = () => {
         }
     }
     function renderPage() {
-        // if (user) return user.mbti.length ? renderDash(user.mbti[0]) : <MbtiForm />;
-        if (1) return 1 ? renderDash(user?.mbti[0]) : <MbtiForm />;
+        if (user) return user.mbti.length ? renderDash(user.mbti[0]) : <MbtiForm />;
+        // if (1) return 1 ? renderDash(user?.mbti[0]) : <MbtiForm />;
         return <Hero />;
     }
 
@@ -122,7 +136,7 @@ const Homepage = () => {
             <DashboardLayout
                 disableCollapsibleSidebar = {width >= 1350}
                 defaultSidebarCollapsed
-                // hideNavigation={!user?.mbti.length}
+                hideNavigation={!user?.mbti.length}
                 slots={{
                     toolbarActions: () => <AccountMenu />,
                 }}

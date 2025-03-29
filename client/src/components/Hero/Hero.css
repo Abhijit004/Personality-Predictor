@@ -59,13 +59,6 @@
 .asset-section .post {
     animation: float 2s ease-in-out infinite;
 }
-.asset-section .post {
-    animation-delay: 5s
-}
-
-.asset-section .chat {
-    animation-delay: 7s;
-}
 
 .hero {
     height: 30vw;

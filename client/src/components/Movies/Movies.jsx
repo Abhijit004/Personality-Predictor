@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Card, Divider, Box } from "@mui/material";
 import { MovieMain, MovieSmall } from "../MovieCard/MovieCard";
+import { useAuth } from "../../AuthContext";
 const movie = {
     title: "The Shawshank Redemption",
     year: 1994,
@@ -22,7 +23,8 @@ Winston Duke"	/name/nm4004793/,/name/nm2143282/,/name/nm1775091/,/name/nm6328300
 
 const Movies = () => {
     const t = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-    const [selected, setSelected] = useState(0)
+    const [selected, setSelected] = useState(0);
+    
     return (
         <Card elevation={0}>
             <MovieMain movie={movie} />
@@ -43,7 +45,7 @@ const Movies = () => {
                 }}
             >
                 {t.map((e, i) => (
-                    <MovieSmall movie={movie} setSelected = {setSelected} key={i} index={i} selected={selected === i}/>
+                    <MovieSmall movie={movie} setSelected={setSelected} key={i} index={i} selected={selected === i} />
                 ))}
             </Box>
         </Card>

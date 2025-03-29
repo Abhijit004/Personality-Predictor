@@ -18,3 +18,9 @@ export const updateMember = (data) =>
             "Content-Type": "application/json",
         },
     });
+
+export const getMovies = (type)=> API.get(`/movie?type=${type}`, {
+    headers: {
+        'Content-Type': 'application/json'
+    }
+})
