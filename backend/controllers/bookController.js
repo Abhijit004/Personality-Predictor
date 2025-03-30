@@ -10,9 +10,9 @@ exports.getBooks = catchAsync(async (req, res, next) => {
         console.log("This is request in books:")
         console.log(req.body)
         // const filter = { type: { $in: [req.body.type] } };
-        const filter = { MBTI: new RegExp(`^${req.query.type},`) };
+        const filter = req.query.type ? { MBTI: new RegExp(`^${req.query.type},`) } : {};
         const books = await Book.find(filter)
-            //.sort({ releaseYear: -1 })
+            //.sort({ Avg_Rating: -1 })
             .limit(10);
 
         return res.status(200).json({ books });
