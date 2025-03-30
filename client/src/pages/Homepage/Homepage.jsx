@@ -92,8 +92,8 @@ const Homepage = () => {
     useEffect(() => {
         const handleGetPopular = async () => {
             const res = await getMovies(user?.mbti[0]);
-            setMovies(res.data.movies)
-            console.log(res.data.movies[0]);
+            setMovies(res?.data?.movies || [])
+            console.log(res?.data?.movies?.[0]);
 
         };
         handleGetPopular();
