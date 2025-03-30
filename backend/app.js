@@ -57,7 +57,7 @@ app.use("/api/v1/", router);
 app.use("/api/v1/auth/", authRouter);
 app.use("/api/v1/user/", userRouter);
 app.use("/api/v1/movie/", movieRouter);
-app.use("api/v1/book/", bookRouter);
+app.use("/api/v1/book/", bookRouter);
 // app.use("/api/v1/event/", eventRouter);
 // app.use("/api/v1/eventreg/", userEnrollRouter);
 

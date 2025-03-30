@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Card, Divider, Box } from "@mui/material";
 import { BookSmall, BookMain } from "../BookCard/BookCard";
-import axios from "axios";
 // Book	Author	Description	Genres	Avg_Rating	Num_Ratings	URL
 /*const book = {
     Book: "The Shawshank Redemption",
@@ -19,12 +18,12 @@ Lupita Nyong'o,
 Danai Gurira, 
 Winston Duke"	/name/nm4004793/,/name/nm2143282/,/name/nm1775091/,/name/nm6328300/	204835*/
 
-const Books = () => {
-    //const t = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-    const [books, setBooks] = useState([]);
+const Books = ({ data }) => {
+    const t = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    //const [books, setBooks] = useState([]);
     const [selected, setSelected] = useState(0);
 
-    useEffect(() => {
+    /*useEffect(() => {
         const fetchBooks = async () => {
             try {
                 const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/book`);
@@ -38,13 +37,13 @@ const Books = () => {
             }
         }
         fetchBooks();
-    }, []);
+    }, []);*/
 
     return (
         <Card elevation={0}>
-            {books.length > 0 ? (
+            {data.length > 0 ? (
                 <>
-                    <BookMain book={books[selected]} />
+                    <BookMain book={data[0]} />
                     <Divider sx={{ my: 1.5 }} />
                     More Books that you make like
                     <Box sx={{ height: 400, overflowY: 'scroll' }}>
@@ -62,7 +61,7 @@ const Books = () => {
                                 },
                             }}
                         >
-                            {books.map((book, i) => (
+                            {data.map((book, i) => (
                                 <BookSmall book={book} setSelected={setSelected} key={book._id} index={i} selected={selected === i} />
                             ))}
                         </Box>

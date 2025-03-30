@@ -63,9 +63,9 @@ export const BookSmall = ({ book, selected, setSelected, index }) => {
                     <Box
                         sx={{ display: "flex", alignItems: "center", mt: 2, gap: 0.5, width: "100%", flexWrap: "wrap" }}
                     >
-                        {book.Genres.map((tag, i) => (
+                        {/* {book.Genres.map((tag, i) => (
                             <Chip label={tag} size="small" sx={{ color: "#fff", bgcolor: "var(--mui-blue)" }} key={i} />
-                        ))}
+                        ))} */}
                     </Box>
                 </CardContent>
             </CardActionArea>
@@ -74,6 +74,7 @@ export const BookSmall = ({ book, selected, setSelected, index }) => {
 };
 
 export const BookMain = ({ book }) => {
+    console.log(book);
     const styles = { display: "flex", gap: 2 };
     const width = window.innerWidth;
     const desktop = width > 700;
@@ -88,6 +89,7 @@ export const BookMain = ({ book }) => {
                         component="div"
                         sx={{ fontWeight: 600, lineHeight: "1.2em", color: "#fff" }}
                     >
+
                         {book.Book}
                     </Typography>
                     <Box sx={desktop ? {} : { display: "flex", alignItems: "center", gap: 0.8 }}>
@@ -126,9 +128,23 @@ export const BookMain = ({ book }) => {
                     <Box
                         sx={{ display: "flex", alignItems: "center", mt: 1, gap: 0.5, width: "100%", flexWrap: "wrap" }}
                     >
-                        {book.Genres.map((tag, i) => (
-                            <Chip label={tag} size="small" sx={{ bgcolor: "#0d47a1", color: "#fff" }} key={i} />
-                        ))}
+                        {/* book.Genres = JSON.parse(book.Genres.replace(/'/g, `"`));
+                        console.log(book.Genres); */}
+                        {/* let genresStr = book.Genres.replace(/[\[\]']/g, "");
+                        const genres = genresStr.split(", "); */}
+                        {/* let i=0;
+                        for (let genre of genres) {
+                            console.log(genre) // Prints each genre as a separate value
+                            {<Chip label={genre} size="small" sx={{ bgcolor: "#0d47a1", color: "#fff" }} key={i} />}
+                            i++
+                        } */}
+                        {/* {genres.map((genre, i) => (
+                            <Chip label={genre} size="small" sx={{ bgcolor: "#0d47a1", color: "#fff" }} key={i} />
+                        ))} */}
+
+                        {/* {book.Genres.map((tag, i) => (
+                            
+                        ))} */}
                     </Box>
                     <Divider sx={{ my: 1.5, border: "0.5px solid rgba(255, 255, 255, 50%)" }} />
                     <Typography variant="body1" color="text.primary" sx={{ mt: 2, color: "#fff" }}>
