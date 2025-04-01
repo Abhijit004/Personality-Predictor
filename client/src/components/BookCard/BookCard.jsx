@@ -91,7 +91,7 @@ export const BookMain = ({ book }) => {
                         gutterBottom
                         variant={desktop ? "h3" : "h5"}
                         component="div"
-                        sx={{ fontWeight: 600, lineHeight: "1.2em", color: "#fff" }}
+                        sx={{ fontWeight: 600, lineHeight: "1.2em", color: "#fff", overflowWrap: 'break-word' }}
                     >
                         {book.Book}
                     </Typography>

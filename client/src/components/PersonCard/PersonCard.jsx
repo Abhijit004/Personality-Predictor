@@ -22,7 +22,7 @@ const PersonCard = ({ person }) => {
             variant="outlined"
         >
             <Box sx={{ p: 1, bgcolor: "#3f51b5", position: "absolute", top: 0, width: "100%", height: 100 }}>
-                <Box sx={{ p: 1, bgcolor: "#1a237e", width: "max-content", borderRadius: 2 }}>{person.mbti[0]}</Box>
+                <Box sx={{ p: 1, bgcolor: "#1a237e", width: "max-content", borderRadius: 2, color: "#fff" }}>{person.mbti[0]}</Box>
             </Box>
             {/* Profile Image */}
             <Box sx={{ display: "flex", justifyContent: "center", pt: 2 }}>
@@ -42,7 +42,12 @@ const PersonCard = ({ person }) => {
                 {/* Name */}
                 <Typography variant="h5">{person.name}</Typography>
 
-                <Typography variant="body2" color="text.secondary">
+                <Typography
+                    variant="body2"
+                    color="text.secondary"
+                    sx={{ overflow: "scroll", "&::-webkit-scrollbar": { height: "2px" } }}
+                    className="email"
+                >
                     {person.email}
                 </Typography>
                 {/* Email */}

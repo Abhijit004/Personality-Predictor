@@ -126,7 +126,7 @@ const Homepage = () => {
         const handleGetMatches = async () => {
             try {
                 const res = await getMatchingUsers(user.mbti[0]);
-                setMatches(res?.data?.matches);
+                setMatches(res?.data?.matches.filter((person) => person.email !== user?.email));
             } catch (err) {
                 console.log("Error handling friends");
             }
