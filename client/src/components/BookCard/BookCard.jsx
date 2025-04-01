@@ -150,13 +150,15 @@ export const BookMain = ({ book }) => {
                         {book.Description.slice(0, 500)}
                         {book.Description.length > 500 ? "..." : ""}
                     </Typography>
-                    <Button
-                        variant="contained"
-                        endIcon={<SendIcon />}
-                        sx={{ mt: 3, bgcolor: "#0d47a1", color: "#fff" }}
-                    >
-                        Send
-                    </Button>
+                    <a href={book.URL} target="_blank" rel="noopener noreferrer">
+                        <Button
+                            variant="contained"
+                            endIcon={<SendIcon />}
+                            sx={{ mt: 3, bgcolor: "#0d47a1", color: "#fff" }}
+                        >
+                            Send
+                        </Button>
+                    </a>
                 </Box>
             </CardContent>
         </Card>
