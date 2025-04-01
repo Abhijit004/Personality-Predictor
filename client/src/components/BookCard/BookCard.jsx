@@ -78,6 +78,10 @@ export const BookMain = ({ book }) => {
     const styles = { display: "flex", gap: 2 };
     const width = window.innerWidth;
     const desktop = width > 700;
+    const genres = book.Genres.substring(1, book.Genres.length - 1)
+        .split(", ")
+        .map((e) => e.substring(1, e.length - 1));
+    console.log(genres);
 
     return (
         <Card sx={{ p: 1 }} className="book-card-wrapper">
@@ -89,7 +93,6 @@ export const BookMain = ({ book }) => {
                         component="div"
                         sx={{ fontWeight: 600, lineHeight: "1.2em", color: "#fff" }}
                     >
-
                         {book.Book}
                     </Typography>
                     <Box sx={desktop ? {} : { display: "flex", alignItems: "center", gap: 0.8 }}>
@@ -138,17 +141,14 @@ export const BookMain = ({ book }) => {
                             {<Chip label={genre} size="small" sx={{ bgcolor: "#0d47a1", color: "#fff" }} key={i} />}
                             i++
                         } */}
-                        {/* {genres.map((genre, i) => (
+                        {genres.map((genre, i) => (
                             <Chip label={genre} size="small" sx={{ bgcolor: "#0d47a1", color: "#fff" }} key={i} />
-                        ))} */}
-
-                        {/* {book.Genres.map((tag, i) => (
-                            
-                        ))} */}
+                        ))}
                     </Box>
                     <Divider sx={{ my: 1.5, border: "0.5px solid rgba(255, 255, 255, 50%)" }} />
                     <Typography variant="body1" color="text.primary" sx={{ mt: 2, color: "#fff" }}>
-                        {book.Description}
+                        {book.Description.slice(0, 500)}
+                        {book.Description.length > 500 ? "..." : ""}
                     </Typography>
                     <Button
                         variant="contained"

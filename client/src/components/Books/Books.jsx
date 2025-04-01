@@ -19,33 +19,14 @@ Danai Gurira,
 Winston Duke"	/name/nm4004793/,/name/nm2143282/,/name/nm1775091/,/name/nm6328300/	204835*/
 
 const Books = ({ data }) => {
-    const t = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-    //const [books, setBooks] = useState([]);
     const [selected, setSelected] = useState(0);
-
-    /*useEffect(() => {
-        const fetchBooks = async () => {
-            try {
-                const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/book`);
-
-                setBooks(res.data.books);
-                setLoading(false);
-            }
-            catch (err) {
-                console.error("Error fetching books", err);
-                setLoading(false);
-            }
-        }
-        fetchBooks();
-    }, []);*/
-
     return (
         <Card elevation={0}>
             {data.length > 0 ? (
                 <>
-                    <BookMain book={data[0]} />
+                    <BookMain book={data[selected]} />
                     <Divider sx={{ my: 1.5 }} />
-                    More Books that you make like
+                    More Books that you may like
                     <Box sx={{ height: 400, overflowY: 'scroll' }}>
                         <Box
                             sx={{

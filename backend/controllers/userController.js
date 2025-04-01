@@ -11,7 +11,7 @@ exports.updateUser = catchAsync(async (req, res, next) => {
             { _id: req.body._id },
             {
                 $set: {
-                    mbti: mbti_res.predictions
+                    mbti: mbti_res.predictions,
                 },
             },
             { new: true, runValidators: true } // Get the updated document
@@ -26,6 +26,23 @@ exports.updateUser = catchAsync(async (req, res, next) => {
         return res.status(200).json({ message: "success", mbti: mbti_res.predictions });
     } catch (err) {
         console.log(err.message);
+        next(err);
+    }
+});
+
+exports.getMatchingUsers = catchAsync(async (req, res, next) => {
+    try {
+        const mbti = req.query.mbti;
+        if (!mbti) {
+            return res.status(400).json({message: "error: no mbti provided"});
+        }
+        const matches = await User.find({ mbti: mbti });
+
+        res.status(200).json({
+            status: "success",
+            matches: matches
+        });
+    } catch (err) {
         next(err);
     }
 });

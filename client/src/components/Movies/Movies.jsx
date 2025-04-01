@@ -27,7 +27,7 @@ const Movies = ({data}) => {
     
     return (
         <Card elevation={0}>
-            <MovieMain movie={data[0]} />
+            <MovieMain movie={data[selected]} />
             <Divider sx={{ my: 1.5 }} />
             More Movies that you make like
             <Box

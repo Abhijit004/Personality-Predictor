@@ -30,3 +30,4 @@ export const getBooks = (type) => API.get(`/book?type=${type}`, {
         'Content-Type': 'application/json'
     }
 })
+export const getMatchingUsers = (mbti) => API.get(`/user/getMatchingUsers?mbti=${mbti}`)
