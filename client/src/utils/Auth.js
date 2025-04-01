@@ -19,8 +19,15 @@ export const updateMember = (data) =>
         },
     });
 
-export const getMovies = (type)=> API.get(`/movie?type=${type}`, {
+export const getMovies = (type) => API.get(`/movie?type=${type}`, {
     headers: {
         'Content-Type': 'application/json'
     }
 })
+
+export const getBooks = (type) => API.get(`/book?type=${type}`, {
+    headers: {
+        'Content-Type': 'application/json'
+    }
+})
+export const getMatchingUsers = (mbti) => API.get(`/user/getMatchingUsers?mbti=${mbti}`)

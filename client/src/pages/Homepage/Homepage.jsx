@@ -21,7 +21,7 @@ import PeopleIcon from "@mui/icons-material/People"; // For Friends
 import StarIcon from "@mui/icons-material/Star"; // For Recommendations Header
 import PersonSearchIcon from "@mui/icons-material/PersonSearch"; // For "People You May Like" header
 import DashboardHome from "../../components/DashboardHome/DashboardHome";
-import { getMovies } from "../../utils/Auth";
+import { getMovies, getBooks, getMatchingUsers } from "../../utils/Auth";
 
 function useDemoRouter(initialPath) {
     const [pathname, setPathname] = React.useState(initialPath);
@@ -83,36 +83,73 @@ const NAVIGATION = [
 const Homepage = () => {
     const { user, handleLogin } = useAuth();
     console.log(user);
-    const width = window.innerWidth
-
+    const width = window.innerWidth;
+    const [books, setBooks] = useState([]);
     const [movies, setMovies] = useState([]);
+    const [matches, setMatches] = useState([]);
 
     console.log("In movies:");
 
     useEffect(() => {
+        if (!user || !user.mbti?.length) return;
         const handleGetPopular = async () => {
             const res = await getMovies(user?.mbti[0]);
-            setMovies(res.data.movies)
-            console.log(res.data.movies[0]);
-
+            setMovies(res?.data?.movies || []);
+            console.log(res?.data?.movies?.[0]);
         };
         handleGetPopular();
+    }, [user]);
+
+    console.log("In Books:");
+    useEffect(() => {
+        if (!user || !user.mbti?.length) return;
+
+        const fetchBooks = async () => {
+            try {
+                console.log("Fetching books for MBTI:", user.mbti[0]);
+                const res = await getBooks(user.mbti[0]);
+                console.log("Response from API:", res); // Log response
+                if (!res?.data?.books) {
+                    console.error("No books found in response:", res);
+                    return;
+                }
+                setBooks(res.data.books);
+                //console.log(res?.data?.books?.[0]);
+            } catch (err) {
+                console.error("Error fetching books", err);
+            }
+        };
+        fetchBooks();
+    }, [user]);
+
+    useEffect(() => {
+        const handleGetMatches = async () => {
+            try {
+                const res = await getMatchingUsers(user.mbti[0]);
+                setMatches(res?.data?.matches.filter((person) => person.email !== user?.email));
+            } catch (err) {
+                console.log("Error handling friends");
+            }
+        };
+
+        handleGetMatches();
     }, [user]);
 
     const router = useDemoRouter("/");
     function renderDash(mbti) {
         switch (router.pathname) {
-            case "/aboutmbti":
-                return <AboutMyMBTI mbti={mbti} />;
             case "/books":
-                return <Books />;
+                console.log("Books data before rendering", books);
+                return <Books data={books} />;
             case "/movies":
+                console.log("Movies data before rendering", movies);
                 return <Movies data={movies} />;
             case "/Friends":
-                return <Friends />;
+                return <Friends matches={matches} />;
             case "/":
             case "/dashboard":
-                return <DashboardHome />;
+            case "/aboutmbti":
+                return <AboutMyMBTI mbti={mbti} />;
             default:
                 return `No Route to this ${router.pathname}`;
         }
@@ -135,7 +172,7 @@ const Homepage = () => {
             router={router}
         >
             <DashboardLayout
-                disableCollapsibleSidebar = {width >= 1350}
+                disableCollapsibleSidebar={width >= 1350}
                 defaultSidebarCollapsed
                 hideNavigation={!user?.mbti.length}
                 slots={{

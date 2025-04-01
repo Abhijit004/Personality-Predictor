@@ -85,7 +85,7 @@ export default function AccountMenu() {
                                 aria-expanded={open ? "true" : undefined}
                             >
                                 <Avatar
-                                    sx={{ width: 32, height: 32, bgcolor: "var(--primary)" }}
+                                    sx={{ width: 32, height: 32, bgcolor: "var(--mui-blue)" }}
                                     src={user?.image}
                                 ></Avatar>
                             </IconButton>
