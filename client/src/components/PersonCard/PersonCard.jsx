@@ -40,7 +40,7 @@ const PersonCard = ({ person }) => {
 
             <CardContent sx={{ textAlign: "center" }}>
                 {/* Name */}
-                <Typography variant="h5">{person.name}</Typography>
+                <Typography variant="h5" sx={{minHeight: '2.5em', lineHeight: '1em', overflowWrap: 'break-word'}}>{person.name}</Typography>
 
                 <Typography
                     variant="body2"

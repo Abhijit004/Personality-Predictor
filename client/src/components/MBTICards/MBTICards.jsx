@@ -10,7 +10,10 @@ export const MBTICard = ({ mbti }) => {
         <Card elevation={5} sx={{ p: 0.5 }} className="mbti-card-wrapper">
             <CardContent sx={{ display: "flex", gap: 2 }} className="mbti-card">
                 <Box sx={{ minWidth: 300 }}>
-                    <img src={`/assets/MBTI_img/${mbti.name}.png`} style={{ width: "100%", height: "100%" }} />
+                    <img
+                        src={`/assets/MBTI_img/${mbti.name}.png`}
+                        style={{ width: "100%", height: "100%", clipPath: "rect(0 100% 100% 0 round 10%)" }}
+                    />
                 </Box>
                 <Box>
                     <Typography variant="body2" color="text.secondary" sx={{ fontSize: 20, color: "#fff" }}>
@@ -58,24 +61,22 @@ export const MBTICard = ({ mbti }) => {
 export const InfoCard = ({ category }) => {
     return (
         <Card elevation={4} className="mbti-small-wrapper">
-            <CardActionArea>
-                <CardContent sx = {{p: 3}}>
-                    <Typography variant="h5" color="text.primary">
-                        <Chip
-                            label={category.short}
-                            size="large"
-                            color="secondary"
-                            variant="filled"
-                            sx={{ my: 1, mr: 1 }}
-                        />
-                        {category.name}
-                    </Typography>
-                    <Divider sx={{ my: 1 }} />
-                    <Typography variant="body1" color="text.primary">
-                        {category.description}
-                    </Typography>
-                </CardContent>
-            </CardActionArea>
+            <CardContent sx={{ p: 3 }}>
+                <Typography variant="h5" color="text.primary">
+                    <Chip
+                        label={category.short}
+                        size="large"
+                        color="secondary"
+                        variant="filled"
+                        sx={{ my: 1, mr: 1 }}
+                    />
+                    {category.name}
+                </Typography>
+                <Divider sx={{ my: 1 }} />
+                <Typography variant="body1" color="text.primary">
+                    {category.description}
+                </Typography>
+            </CardContent>
         </Card>
     );
 };
