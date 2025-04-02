@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 // const { promisify } = require('util');
 const oauth2Client = require("../utils/oauth2client");
 const catchAsync = require("../utils/catchAsync");
-const User = require("../models/userModel");
+const User = require("../models/UserModel");
 require("dotenv").config();
 
 // Secure passkey stored in .env file

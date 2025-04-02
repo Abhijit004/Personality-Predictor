@@ -1,6 +1,6 @@
 const axios = require("axios");
 const catchAsync = require("../utils/catchAsync");
-const User = require("../models/userModel");
+const User = require("../models/UserModel");
 const { getPersonalityTypes } = require("../utils/getPersonalityType");
 
 exports.updateUser = catchAsync(async (req, res, next) => {
