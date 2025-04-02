@@ -113,12 +113,10 @@ const Hero = () => {
                     zIndex: "20",
                 }}
             >
-                <Button size="large" variant="contained" sx={{backgroundColor: "var(--mui-blue)"}}>
-                    Know your vibe
-                </Button>
-                <Button size="large" variant="outlined" sx={{color: "var(--mui-blue)"}}>
+                <Button size="large" variant="contained" sx={{backgroundColor: "var(--mui-blue)", fontWeight: 600}}>
                     What is MBTI?
                 </Button>
+
             </ButtonGroup>
         </Box>
     );

@@ -22,7 +22,6 @@ export const MBTICard = ({ mbti }) => {
                         component="div"
                         sx={{
                             fontWeight: 600,
-                            lineHeight: "1.2em",
                             fontFamily: "monospace",
                             lineHeight: "1em",
                             m: 0,

@@ -3,7 +3,7 @@ import React, { createContext, useContext, useState, useEffect } from "react";
 import { Snackbar, Alert } from "@mui/material";
 
 const AuthContext = createContext();
-import { checkStatus } from "./utils/Auth";
+import { checkStatus, logoutUser } from "./utils/Auth";
 
 export const AuthProvider = ({ children }) => {
     const [user, setUser] = useState(null);
@@ -30,7 +30,7 @@ export const AuthProvider = ({ children }) => {
     const handleLogout = async () => {
         console.log("Logout the user!");
         try {
-            // await logout();
+            await logoutUser();
             showAlert("user has been logged out", "success");
             setUser(null);
         } catch (err) {
