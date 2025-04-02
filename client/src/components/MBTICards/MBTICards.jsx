@@ -4,8 +4,6 @@ import "./MBTICards.css";
 import { deepPurple } from "@mui/material/colors";
 
 export const MBTICard = ({ mbti }) => {
-    console.log(mbti);
-
     return (
         <Card elevation={5} sx={{ p: 0.5 }} className="mbti-card-wrapper">
             <CardContent sx={{ display: "flex", gap: 2 }} className="mbti-card">
