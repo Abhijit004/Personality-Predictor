@@ -1,6 +1,7 @@
 {
   "name": "VibeSphere",
   "short_name": "Vibe",
+  "description": "Your ultimate source for positive vibes and inspiration.",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
@@ -15,7 +16,14 @@
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#dfceff",
-  "background_color": "#dfceff",
-  "display": "standalone"
+  "start_url": "/index.html",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "rgb(146, 76, 252)",
+  "theme_color": "rgb(146, 76, 252)",
+  "prefer_related_applications": false,
+  "scope": "/",
+  "lang": "en-US",
+  "dir": "ltr",
+  "categories": ["lifestyle", "inspiration"]
 }
