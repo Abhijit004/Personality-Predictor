@@ -60,31 +60,44 @@ html[class="light"] {
     padding: 0 !important;
 }
 
-.MuiListItem-root[aria-label="Books"] * {
+.MuiListItem-root[aria-label="Books"], .MuiSvgIcon-root[data-testid="MenuBookIcon"]  {
     color: var(--mui-blue) !important;
 }
 
 .MuiListItem-root[aria-label="Books"] .Mui-selected {
     background-color: hsla(207, 89%, 54%, 0.3);
 }
-.MuiListItem-root[aria-label="Movies"] * {
+.MuiListItem-root[aria-label="Movies"], .MuiSvgIcon-root[data-testid="MovieIcon"]  {
     color: var(--mui-orange) !important;
 }
 
 .MuiListItem-root[aria-label="Movies"] .Mui-selected {
     background-color: hsla(36, 100%, 50%, 0.3);
 }
-.MuiListItem-root[aria-label="My Friends"] * {
+.MuiListItem-root[aria-label="My Friends"], .MuiSvgIcon-root[data-testid="PeopleIcon"]  {
     color: var(--mui-teal) !important;
 }
 
 .MuiListItem-root[aria-label="My Friends"] .Mui-selected {
     background-color: hsla(174, 100%, 29%, 0.3);
 }
-.MuiListItem-root[aria-label="My Personality Type"] * {
+.MuiListItem-root[aria-label="My Personality Type"], .MuiSvgIcon-root[data-testid="DashboardIcon"] {
     color: var(--mui-purple) !important;
 }
 
 .MuiListItem-root[aria-label="My Personality Type"] .Mui-selected {
     background-color: hsla(262, 52%, 47%, 0.3);
+}
+
+.MuiListItemButton-root[href="/aboutmbti"].Mui-selected {
+    background-color: #8b59e136 !important;
+}
+.MuiListItemButton-root[href="/books"].Mui-selected {
+    background-color: hsla(207, 89%, 54%, 0.3) !important;
+}
+.MuiListItemButton-root[href="/movies"].Mui-selected {
+    background-color: hsla(36, 100%, 50%, 0.3) !important;
+}
+.MuiListItemButton-root[href="/Friends"].Mui-selected {
+    background-color: hsla(174, 100%, 29%, 0.3) !important;
 }

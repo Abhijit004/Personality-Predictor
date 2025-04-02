@@ -23,7 +23,7 @@ Winston Duke"	/name/nm4004793/,/name/nm2143282/,/name/nm1775091/,/name/nm6328300
 
 const Movies = ({ data }) => {
     const t = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-    const [selected, setSelected] = useState(0);
+    const [selected, setSelected] = useState(-1);
 
     return (
         <Card elevation={0} className="cardcontent">
