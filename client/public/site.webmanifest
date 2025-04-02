@@ -1,29 +1,42 @@
 {
-  "name": "VibeSphere",
-  "short_name": "Vibe",
-  "description": "Your ultimate source for positive vibes and inspiration.",
-  "icons": [
-    {
-      "src": "/web-app-manifest-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
-      "src": "/web-app-manifest-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
-    }
-  ],
-  "start_url": "/index.html",
-  "display": "standalone",
-  "orientation": "any",
-  "background_color": "rgb(146, 76, 252)",
-  "theme_color": "rgb(146, 76, 252)",
-  "prefer_related_applications": false,
-  "scope": "/",
-  "lang": "en-US",
-  "dir": "ltr",
-  "categories": ["lifestyle", "inspiration"]
+    "name": "VibeSphere",
+    "short_name": "Vibe",
+    "description": "Your ultimate source for positive vibes and inspiration.",
+    "icons": [
+        {
+            "src": "/web-app-manifest-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "/web-app-manifest-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "any"
+        }
+    ],
+    "start_url": ".",
+    "screenshots": [
+        {
+            "src": "/screenshots/desktop.png",
+            "sizes": "1920x1225",
+            "type": "image/png",
+            "form_factor": "wide"
+        },
+        {
+            "src": "/screenshots/mobile.png",
+            "sizes": "321x696",
+            "type": "image/png"
+        }
+    ],
+    "display": "standalone",
+    "orientation": "any",
+    "background_color": "rgb(146, 76, 252)",
+    "theme_color": "rgb(146, 76, 252)",
+    "prefer_related_applications": false,
+    "scope": "/",
+    "lang": "en-US",
+    "dir": "ltr",
+    "categories": ["lifestyle", "inspiration"]
 }
