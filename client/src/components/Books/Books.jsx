@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Card, Divider, Box } from "@mui/material";
+import { Card, Divider, Box, CardContent } from "@mui/material";
 import { BookSmall, BookMain } from "../BookCard/BookCard";
 // Book	Author	Description	Genres	Avg_Rating	Num_Ratings	URL
 /*const book = {
@@ -21,35 +21,39 @@ Winston Duke"	/name/nm4004793/,/name/nm2143282/,/name/nm1775091/,/name/nm6328300
 const Books = ({ data }) => {
     const [selected, setSelected] = useState(0);
     return (
-        <Card elevation={0}>
+        <Card elevation={0} className="cardcontent">
             {data.length > 0 ? (
-                <>
-                    <BookMain book={data[selected]} />
-                    <Divider sx={{ my: 1.5 }} />
+                <CardContent className="cardcontent">
                     More Books that you may like
-                    <Box sx={{ height: 400, overflowY: 'scroll' }}>
-                        <Box
-                            sx={{
-                                display: "flex",
-                                alignItems: "center",
-                                mt: 1,
-                                gap: 2,
-                                flexWrap: "wrap",
-                                "& > *": {
-                                    minWidth: 300,
-                                    flexGrow: 1,
-                                    flexBasis: 300,
-                                },
-                            }}
-                        >
-                            {data.map((book, i) => (
-                                <BookSmall book={book} setSelected={setSelected} key={book._id} index={i} selected={selected === i} />
-                            ))}
-                        </Box>
+                    <Box
+                        sx={{
+                            display: "flex",
+                            alignItems: "start",
+                            mt: 1,
+                            gap: 2,
+                            p: 0,
+                            flexWrap: "wrap",
+                            "& > *": {
+                                minWidth: 300,
+                                flexGrow: 1,
+                                flexBasis: 300,
+                            },
+                        }}
+                    >
+                        {data.map((book, i) => (
+                            <BookSmall
+                                book={book}
+                                setSelected={setSelected}
+                                key={book._id}
+                                index={i}
+                                selected={selected === i}
+                            />
+                        ))}
                     </Box>
-                </>
-            ) : (<p> No Books Found
-            </p>)}
+                </CardContent>
+            ) : (
+                <p> No Books Found</p>
+            )}
         </Card>
     );
 };

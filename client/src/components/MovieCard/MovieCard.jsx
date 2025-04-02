@@ -1,32 +1,61 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import { Chip, Rating, Divider, CardActionArea } from "@mui/material";
+import { Chip, Slide, Dialog, Divider, CardActionArea, IconButton, Button } from "@mui/material";
 import Box from "@mui/material/Box";
 import "./MovieCard.css";
+import CloseIcon from "@mui/icons-material/Close";
+import SendIcon from "@mui/icons-material/Send";
+
+const Transition = React.forwardRef(function Transition(props, ref) {
+    return <Slide direction="up" ref={ref} {...props} />;
+});
 
 export const MovieSmall = ({ movie, selected, setSelected, index }) => {
+    const [open, setOpen] = useState(false);
     return (
-        <Card className="movie-small-wrapper">
-            <CardActionArea
-                data-active={selected ? "yes" : "no"}
-                onClick={() => setSelected(index)}
-                sx={{
-                    "&[data-active=yes]": {
-                        backgroundColor: "action.selected",
-                        "&:hover": {
-                            backgroundColor: "action.selectedHover",
+        <>
+            <Card className="movie-small-wrapper">
+                <CardActionArea
+                    data-active={selected ? "yes" : "no"}
+                    onClick={() => setOpen(true)}
+                    sx={{
+                        "&[data-active=yes]": {
+                            backgroundColor: "action.selected",
+                            "&:hover": {
+                                backgroundColor: "action.selectedHover",
+                            },
                         },
-                    },
-                }}
-            >
-                <CardContent>
-                    <Typography gutterBottom variant="h5" component="div" sx={{ fontWeight: 600, lineHeight: "1.2em" }}>
-                        {movie.Title}
-                    </Typography>
-                    <Divider sx={{ my: 1.5 }} />
-                    {/* <Box sx={{ display: "flex", alignItems: "center", mt: 1 }}>
+                    }}
+                >
+                    <CardContent>
+                        <Typography
+                            gutterBottom
+                            variant="h5"
+                            component="div"
+                            sx={{ fontWeight: 600, lineHeight: "1.2em" }}
+                        >
+                            {movie.Title}
+                        </Typography>
+                        <Box>
+                            <Typography variant="body2" color="text.secondary">
+                                Directed By
+                            </Typography>
+                            <Typography variant="body1" color="text.primary">
+                                {movie.Director}
+                            </Typography>
+                        </Box>
+                        <Box sx={{ mt: 1 }}>
+                            <Typography variant="body2" color="text.secondary">
+                                Cast
+                            </Typography>
+                            <Typography variant="body1" color="text.primary">
+                                {movie.Cast}
+                            </Typography>
+                        </Box>
+                        <Divider sx={{ my: 1.5 }} />
+                        {/* <Box sx={{ display: "flex", alignItems: "center", mt: 1 }}>
                         <Rating
                             name="read-only"
                             value={movie.rating}
@@ -39,33 +68,64 @@ export const MovieSmall = ({ movie, selected, setSelected, index }) => {
                             {movie.rating}
                         </Typography>
                     </Box> */}
-                    <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
-                        Released in {movie["Release Year"]}
-                    </Typography>
-                    <Divider sx={{ my: 1.5 }} />
-                    <Box
-                        sx={{ display: "flex", alignItems: "center", mt: 2, gap: 0.5, width: "100%", flexWrap: "wrap" }}
-                    >
-                        {movie.Genre.split(",").map((tag, i) => (
-                            <Chip
-                                label={tag}
-                                size="small"
-                                sx={{ bgcolor: "var(--mui-orange)", color: "#fff" }}
-                                key={i}
-                            />
-                        ))}
-                    </Box>
-                </CardContent>
-            </CardActionArea>
-        </Card>
+                        <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
+                            Released in {movie["Release Year"]}
+                        </Typography>
+                        <Box
+                            sx={{
+                                display: "flex",
+                                alignItems: "center",
+                                mt: 2,
+                                gap: 0.5,
+                                width: "100%",
+                                flexWrap: "wrap",
+                            }}
+                        >
+                            {movie.Genre.split(",").map((tag, i) => (
+                                <Chip
+                                    label={tag}
+                                    size="small"
+                                    sx={{ bgcolor: "var(--mui-orange)", color: "#fff" }}
+                                    key={i}
+                                />
+                            ))}
+                        </Box>
+                        <Divider sx={{ my: 1 }} />
+                        <a href={movie["Wiki Page"]} target="_blank" rel="noopener noreferrer">
+                            <Button
+                                variant="contained"
+                                endIcon={<SendIcon />}
+                                sx={{ bgcolor: "#bf360c", color: "#fff" }}
+                            >
+                                Know More
+                            </Button>
+                        </a>
+                    </CardContent>
+                </CardActionArea>
+            </Card>
+            <Dialog
+                onClose={() => setOpen(false)}
+                open={open}
+                TransitionComponent={Transition}
+                keepMounted
+                fullWidth
+                maxWidth={600}
+            >
+                <div className={"movie-dialogue"}>
+                    <IconButton onClick={() => setOpen(false)}>
+                        <CloseIcon />
+                    </IconButton>
+                    <MovieMain movie={movie} />
+                </div>
+            </Dialog>
+        </>
     );
 };
 
 export const MovieMain = ({ movie }) => {
     const styles = { display: "flex", gap: 2 };
     const width = window.innerWidth;
-    const desktop = width > 700;
-    console.log(desktop, width);
+    const desktop = false;
 
     return (
         <Card sx={{ p: 1 }} className="movie-card-wrapper">
@@ -75,16 +135,24 @@ export const MovieMain = ({ movie }) => {
                         gutterBottom
                         variant={desktop ? "h3" : "h5"}
                         component="div"
-                        sx={{ fontWeight: 600, lineHeight: "1.2em", color: "#fff", overflowWrap: 'break-word' }}
+                        sx={{ fontWeight: 600, lineHeight: "1.2em", color: "#fff", overflowWrap: "break-word" }}
                     >
                         {movie.Title}
                     </Typography>
-                    <Box sx={desktop ? {} : { display: "flex", alignItems: "center", gap: 0.8 }}>
+                    <Box>
                         <Typography variant="body2" color="text.secondary" sx={{ color: "#fff" }}>
                             Directed By
                         </Typography>
                         <Typography variant="body1" color="text.primary" sx={{ fontWeight: 500, color: "#fff" }}>
                             {movie.Director}
+                        </Typography>
+                    </Box>
+                    <Box>
+                        <Typography variant="body2" color="text.secondary" sx={{ color: "#fff", mt: 1 }}>
+                            Starring
+                        </Typography>
+                        <Typography variant="body1" color="text.primary" sx={{ fontWeight: 500, color: "#fff" }}>
+                            {movie.Cast}
                         </Typography>
                     </Box>
                 </Box>
@@ -125,9 +193,19 @@ export const MovieMain = ({ movie }) => {
                     </Box>
                     <Divider sx={{ my: 1.5, border: "0.5px solid rgba(255, 255, 255, 50%)" }} />
                     <Typography variant="body1" color="text.primary" sx={{ mt: 2, color: "#fff" }}>
-                        {movie.Plot.slice(0, 500)}{movie.Plot.length>500?"...":""}
+                        {movie.Plot.slice(0, 500)}
+                        {movie.Plot.length > 500 ? "..." : ""}
                     </Typography>
                 </Box>
+                <a href={movie["Wiki Page"]} target="_blank" rel="noopener noreferrer">
+                    <Button
+                        variant="contained"
+                        endIcon={<SendIcon />}
+                        sx={{ bgcolor: "#bf360c", color: "#fff", mt: 2 }}
+                    >
+                        Know More
+                    </Button>
+                </a>
             </CardContent>
         </Card>
     );

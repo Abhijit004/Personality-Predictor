@@ -52,3 +52,7 @@ html[class='dark'] {
 html[class='light'] {
   --mycardoverlay: rgba(255, 255, 255, 0.70)
 }
+
+.cardcontent {
+  padding: 0 !important;
+}
