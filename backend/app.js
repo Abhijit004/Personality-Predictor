@@ -15,7 +15,7 @@ app.enable('trust proxy');
 
 // const CLIENT_URL = process.env.CLIENT_URL;
 // const ADMIN_URL = process.env.ADMIN_URL;
-const allowedOrigins = ["http://localhost:5173"];
+const allowedOrigins = ["http://localhost:5173", "https://vibesphere-mbti.vercel.app"];
 const corsOptions = {
     origin: (origin, callback) => {
         if (!origin || allowedOrigins.includes(origin)) {
