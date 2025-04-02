@@ -22,7 +22,6 @@ const Hero = () => {
         <Box
             sx={{
                 px: "0.5rem",
-                py: "2rem",
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
@@ -44,7 +43,7 @@ const Hero = () => {
                     variant="h2"
                     sx={{
                         lineHeight: "1em",
-                        fontSize: "clamp(2.5rem, 1.1667rem + 5.3333vw, 5rem)",
+                        fontSize: "clamp(3.2rem, 1.1667rem + 5.3333vw, 4rem)",
                         whiteSpace: "nowrap",
                         fontWeight: 500,
                     }}
@@ -55,7 +54,7 @@ const Hero = () => {
                     variant="h2"
                     sx={{
                         lineHeight: "1em",
-                        fontSize: "clamp(2.5rem, 1.1667rem + 5.3333vw, 5rem)",
+                        fontSize: "clamp(3.2rem, 1.1667rem + 5.3333vw, 4rem)",
                         whiteSpace: "nowrap",
                         fontWeight: 500,
                     }}
@@ -67,11 +66,12 @@ const Hero = () => {
             <Typography
                 align="center"
                 sx={{
-                    width: { xs: "80%", sm: "70%", md: "60%", lg: "50%" },
+                    maxWidth: '70ch',
                     paddingTop: "1rem",
-                    fontSize: "1rem",
+                    fontSize: "clamp(1rem, 1rem + 0.5vw, 1.5rem)",
                 }}
                 className="header-desc"
+                color="text.secondary"
             >
                 Welcome to the MBTI Predictor & Recommendations App—your personalized gateway to self-discovery and
                 entertainment! Uncover your personality type and receive tailored recommendations to match your unique
