@@ -143,7 +143,7 @@ export default function AccountMenu() {
                     </div>
                 )}
                 <Divider />
-                {user && (
+                {/* {user && (
                     <MenuItem
                         onClick={() => {
                             handleClose();
@@ -164,7 +164,7 @@ export default function AccountMenu() {
                             />
                         )}
                     </MenuItem>
-                )}
+                )} */}
                 {user && (
                     <MenuItem
                         onClick={() => {
