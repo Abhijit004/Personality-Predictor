@@ -1,54 +1,103 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wdth,wght@0,62.5..100,100..900;1,62.5..100,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wdth,wght@0,62.5..100,100..900;1,62.5..100,100..900&display=swap");
 
 :root {
-  font-family: "Noto Sans", system-ui, Avenir, Helvetica, Arial, sans-serif;
-  font-weight: 400;
+    font-family: "Noto Sans", system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-weight: 400;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  --mui-red: #F44336;
-  --mui-yellow: #FFC107;
-  --mui-green: #4CAF50;
-  --mui-blue: #2196F3;
-  --mui-purple: #673AB7;
-  --mui-orange: #FF9800;
-  color: #3b3b3b;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    --mui-red: #f44336;
+    --mui-yellow: #ffc107;
+    --mui-green: #4caf50;
+    --mui-blue: #2196f3;
+    --mui-purple: #673ab7;
+    --mui-orange: #ff9800;
+    --mui-teal: #009688;
+    color: #3b3b3b;
 }
 
-*, *::after, *::before {
-  box-sizing: border-box;
-  margin: 0;
-  outline: 0;
-  padding: 0;
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    outline: 0;
+    padding: 0;
 }
 
 body {
-  overflow-x: hidden;
+    overflow-x: hidden;
 }
 
 *::-webkit-scrollbar {
-  width: 2px;
-  /* background: linear-gradient(var(--brand) 20%, white 100%); */
+    width: 2px;
+    /* background: linear-gradient(var(--brand) 20%, white 100%); */
 }
 
 *::-webkit-scrollbar-thumb {
-  width: 2px !important;
-  background: var(--mui-blue);
+    width: 2px !important;
+    background: var(--mui-blue);
 }
 *::-webkit-scrollbar-button,
 *::-webkit-scrollbar-corner {
-  display: none;
+    display: none;
 }
 .MuiTypography-root {
-  position: relative !important;
-  z-index: 1000 !important;
+    position: relative !important;
+    z-index: 1000 !important;
 }
 
-html[class='dark'] {
-  --mycardoverlay: rgba(0, 0, 0, 0.70)
+html[class="dark"] {
+    --mycardoverlay: rgba(0, 0, 0, 0.7);
 }
-html[class='light'] {
-  --mycardoverlay: rgba(255, 255, 255, 0.70)
+html[class="light"] {
+    --mycardoverlay: hsla(0, 0%, 100%, 0.7);
+}
+
+.cardcontent {
+    padding: 0 !important;
+}
+
+.MuiListItem-root[aria-label="Books"], .MuiSvgIcon-root[data-testid="MenuBookIcon"]  {
+    color: var(--mui-blue) !important;
+}
+
+.MuiListItem-root[aria-label="Books"] .Mui-selected {
+    background-color: hsla(207, 89%, 54%, 0.3);
+}
+.MuiListItem-root[aria-label="Movies"], .MuiSvgIcon-root[data-testid="MovieIcon"]  {
+    color: var(--mui-orange) !important;
+}
+
+.MuiListItem-root[aria-label="Movies"] .Mui-selected {
+    background-color: hsla(36, 100%, 50%, 0.3);
+}
+.MuiListItem-root[aria-label="My Friends"], .MuiSvgIcon-root[data-testid="PeopleIcon"]  {
+    color: var(--mui-teal) !important;
+}
+
+.MuiListItem-root[aria-label="My Friends"] .Mui-selected {
+    background-color: hsla(174, 100%, 29%, 0.3);
+}
+.MuiListItem-root[aria-label="My Personality Type"], .MuiSvgIcon-root[data-testid="DashboardIcon"] {
+    color: var(--mui-purple) !important;
+}
+
+.MuiListItem-root[aria-label="My Personality Type"] .Mui-selected {
+    background-color: hsla(262, 52%, 47%, 0.3);
+}
+
+.MuiListItemButton-root[href="/aboutmbti"].Mui-selected {
+    background-color: #8b59e136 !important;
+}
+.MuiListItemButton-root[href="/books"].Mui-selected {
+    background-color: hsla(207, 89%, 54%, 0.3) !important;
+}
+.MuiListItemButton-root[href="/movies"].Mui-selected {
+    background-color: hsla(36, 100%, 50%, 0.3) !important;
+}
+.MuiListItemButton-root[href="/Friends"].Mui-selected {
+    background-color: hsla(174, 100%, 29%, 0.3) !important;
 }

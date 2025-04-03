@@ -33,6 +33,18 @@
     z-index: 1;
 }
 
+.book-dialogue {
+    padding: 0.5rem;
+}
+
 .book-small-wrapper {
+    max-width: 400px;
+}
+
+.book-small-wrapper, .book-dialogue {
     background: linear-gradient(var(--mycardoverlay), var(--mycardoverlay)), var(--mui-blue) !important;
+}
+
+.MuiTooltip-tooltip {
+    max-width: 350px !important
 }

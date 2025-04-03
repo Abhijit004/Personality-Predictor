@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import "./Hero.css";
-
 import { Box, Button, ButtonGroup, Typography } from "@mui/material";
-
+import EastIcon from '@mui/icons-material/East';
 const images = ["/assets/Variant-1.webp", "/assets/Variant-2.webp", "/assets/Variant-3.webp"];
 
 const Hero = () => {
@@ -66,7 +65,7 @@ const Hero = () => {
             <Typography
                 align="center"
                 sx={{
-                    maxWidth: '70ch',
+                    maxWidth: "70ch",
                     paddingTop: "1rem",
                     fontSize: "clamp(1rem, 1rem + 0.5vw, 1.5rem)",
                 }}
@@ -111,12 +110,18 @@ const Hero = () => {
                     border: "1px solid grey",
                     marginTop: "-5rem",
                     zIndex: "20",
+                    width: "min(400px, 100%)",
                 }}
             >
-                <Button size="large" variant="contained" sx={{backgroundColor: "var(--mui-blue)", fontWeight: 600}}>
-                    What is MBTI?
-                </Button>
-
+                <a
+                    href="https://www.themyersbriggs.com/en-US/Products-and-Services/Myers-Briggs"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <Button size="large" variant="contained" sx={{ backgroundColor: "var(--mui-blue)" }} endIcon={<EastIcon />}>
+                        What is MBTI?
+                    </Button>
+                </a>
             </ButtonGroup>
         </Box>
     );

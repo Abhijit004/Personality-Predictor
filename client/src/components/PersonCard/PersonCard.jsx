@@ -17,12 +17,12 @@ const PersonCard = ({ person }) => {
                 },
                 // m: 6,
                 position: "relative",
-                background: "linear-gradient(var(--mycardoverlay), var(--mycardoverlay)), #3f51b5 !important",
+                background: "linear-gradient(var(--mycardoverlay), var(--mycardoverlay)), #009688 !important",
             }}
             variant="outlined"
         >
-            <Box sx={{ p: 1, bgcolor: "#3f51b5", position: "absolute", top: 0, width: "100%", height: 100 }}>
-                <Box sx={{ p: 1, bgcolor: "#1a237e", width: "max-content", borderRadius: 2, color: "#fff" }}>{person.mbti[0]}</Box>
+            <Box sx={{ p: 1, bgcolor: "#009688", position: "absolute", top: 0, width: "100%", height: 100 }}>
+                <Box sx={{ p: 1, bgcolor: "#00695f", width: "max-content", borderRadius: 2, color: "#fff" }}>{person.mbti[0]}</Box>
             </Box>
             {/* Profile Image */}
             <Box sx={{ display: "flex", justifyContent: "center", pt: 2 }}>
@@ -32,7 +32,7 @@ const PersonCard = ({ person }) => {
                     sx={{
                         width: 140,
                         height: 140,
-                        border: "3px solid #3f51b5",
+                        border: "3px solid #009688",
                         boxShadow: "0 2px 8px rgba(0,0,0,0.2)",
                     }}
                 />
@@ -40,7 +40,7 @@ const PersonCard = ({ person }) => {
 
             <CardContent sx={{ textAlign: "center" }}>
                 {/* Name */}
-                <Typography variant="h5">{person.name}</Typography>
+                <Typography variant="h5" sx={{minHeight: '2.5em', lineHeight: '1em', overflowWrap: 'break-word'}}>{person.name}</Typography>
 
                 <Typography
                     variant="body2"
@@ -63,7 +63,7 @@ const PersonCard = ({ person }) => {
                             size="small"
                             variant="filled"
                             sx={{
-                                bgcolor: "#3f51b5",
+                                bgcolor: "#009688",
                                 color: "#fff",
                             }}
                         />

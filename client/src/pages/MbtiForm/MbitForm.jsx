@@ -17,7 +17,7 @@ import { updateMember } from "../../utils/Auth";
 import { useAuth } from "../../AuthContext";
 import { useNavigate } from "react-router-dom";
 
-const LongTextForm = () => {
+const MbtiForm = () => {
     const [formData, setFormData] = useState({
         howAreYou: "",
         whatDoYouLove: "",
@@ -204,4 +204,4 @@ const LongTextForm = () => {
     );
 };
 
-export default LongTextForm;
+export default MbtiForm;

@@ -4,13 +4,14 @@ import "./MBTICards.css";
 import { deepPurple } from "@mui/material/colors";
 
 export const MBTICard = ({ mbti }) => {
-    console.log(mbti);
-
     return (
         <Card elevation={5} sx={{ p: 0.5 }} className="mbti-card-wrapper">
             <CardContent sx={{ display: "flex", gap: 2 }} className="mbti-card">
                 <Box sx={{ minWidth: 300 }}>
-                    <img src={`/assets/MBTI_img/${mbti.name}.png`} style={{ width: "100%", height: "100%" }} />
+                    <img
+                        src={`/assets/MBTI_img/${mbti.name}.png`}
+                        style={{ width: "100%", height: "100%", clipPath: "rect(0 100% 100% 0 round 10%)" }}
+                    />
                 </Box>
                 <Box>
                     <Typography variant="body2" color="text.secondary" sx={{ fontSize: 20, color: "#fff" }}>

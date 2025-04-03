@@ -9,7 +9,7 @@ const Friends = ({ matches }) => {
             <Box
                 sx={{
                     display: "flex",
-                    alignItems: "center",
+                    alignItems: "start",
                     mt: 1,
                     gap: 2,
                     flexWrap: "wrap",
