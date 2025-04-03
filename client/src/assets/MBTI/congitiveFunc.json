@@ -1,42 +1,42 @@
 {
-    "Ni": {
-        "name": "Introverted Intuition",
-        "short": "Ni",
-        "description": "Foresees patterns and outcomes. Focused on abstract visions. Strategizes long-term. Often has 'aha' moments. Future-oriented and insightful."
+    "I": {
+        "Short": "I",
+        "Name": "Introversion",
+        "Description": "Prefers solitude and deep focus. Energized by inner thoughts rather than social interactions. Values introspection, quiet environments, and deep conversations over small talk."
     },
-    "Ne": {
-        "name": "Extraverted Intuition",
-        "short": "Ne",
-        "description": "Generates endless possibilities. Connects disparate ideas. Brainstorms creatively. Loves novelty. Jumps between concepts. Sees potential everywhere."
+    "E": {
+        "Short": "E",
+        "Name": "Extraversion",
+        "Description": "Gains energy from social interactions and active engagement with others. Thrives in group settings, enjoys discussions, and prefers external stimulation over solitude."
     },
-    "Si": {
-        "name": "Introverted Sensing",
-        "short": "Si",
-        "description": "Recalls past details accurately. Values traditions. Compares present to memories. Prefers routine. Notices subtle changes. Reliable and meticulous."
+    "N": {
+        "Short": "N",
+        "Name": "Intuition",
+        "Description": "Focuses on abstract thinking, patterns, and future possibilities. Prefers big-picture concepts over immediate details and enjoys exploring imaginative and theoretical ideas."
     },
-    "Se": {
-        "name": "Extraverted Sensing",
-        "short": "Se",
-        "description": "Lives in the moment. Thrives on sensory experiences. Acts impulsively. Loves adrenaline. Observant of surroundings. Hands-on and adaptable."
+    "S": {
+        "Short": "S",
+        "Name": "Sensing",
+        "Description": "Relies on concrete facts, direct experience, and real-world applications. Prefers practical knowledge, paying attention to detail, and dealing with tangible reality."
     },
-    "Ti": {
-        "name": "Introverted Thinking",
-        "short": "Ti",
-        "description": "Seeks logical precision. Analyzes systems internally. Questions assumptions. Values accuracy. Detached but deep. Builds mental frameworks."
+    "T": {
+        "Short": "T",
+        "Name": "Thinking",
+        "Description": "Makes decisions based on logic, analysis, and objectivity. Values efficiency and rational problem-solving over emotions and personal values."
     },
-    "Te": {
-        "name": "Extraverted Thinking",
-        "short": "Te",
-        "description": "Organizes efficiently. Solves problems pragmatically. Directs others. Focuses on results. Prioritizes productivity. Establishes clear systems."
+    "F": {
+        "Short": "F",
+        "Name": "Feeling",
+        "Description": "Prioritizes emotions, empathy, and personal values when making decisions. Focuses on harmony, relationships, and understanding people’s needs over cold logic."
     },
-    "Fi": {
-        "name": "Introverted Feeling",
-        "short": "Fi",
-        "description": "Guided by personal values. Authentic and empathetic. Judges morality internally. Deep emotions. Resists conformity. Seeks personal meaning."
+    "J": {
+        "Short": "J",
+        "Name": "Judging",
+        "Description": "Prefers structure, order, and planning. Likes having clear goals, schedules, and a well-organized life. Tends to be decisive and methodical in approaching tasks."
     },
-    "Fe": {
-        "name": "Extraverted Feeling",
-        "short": "Fe",
-        "description": "Harmonizes group dynamics. Reads emotional atmospheres. Prioritizes others' needs. Socially diplomatic. Expresses warmth. Values collective ethics."
+    "P": {
+        "Short": "P",
+        "Name": "Perceiving",
+        "Description": "Flexible and adaptable, prefers spontaneity over rigid plans. Enjoys exploring new possibilities, keeping options open, and adapting to changing circumstances rather than sticking to a strict schedule."
     }
 }

@@ -9,6 +9,13 @@ const AboutMyMBTI = ({mbti}) => {
     // mbti = "INFP"
     const mbtiType = {name: mbti, data: mbtiData[mbti]}
     const [a, b, c, d] = mapping[mbti]
+    console.log(mbtiType);
+    console.log(a);
+    console.log(c);
+    console.log(b);
+    console.log(d);
+    
+    
     return (
         <Grid container spacing={2} sx={{ maxWidth: 1000 }}>
             <Grid container spacing={2}>

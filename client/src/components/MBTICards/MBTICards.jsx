@@ -61,17 +61,17 @@ export const InfoCard = ({ category }) => {
                 <CardContent sx = {{p: 3}}>
                     <Typography variant="h5" color="text.primary">
                         <Chip
-                            label={category.short}
+                            label={category.Short}
                             size="large"
                             color="secondary"
                             variant="filled"
                             sx={{ my: 1, mr: 1 }}
                         />
-                        {category.name}
+                        {category.Name}
                     </Typography>
                     <Divider sx={{ my: 1 }} />
                     <Typography variant="body1" color="text.primary">
-                        {category.description}
+                        {category.Description}
                     </Typography>
                 </CardContent>
             </CardActionArea>
