@@ -1,9 +1,12 @@
 import joblib
+from utils.preprocessing import preprocess_text
 
-model = joblib.load("models/mbti_model.pkl")
-vectorizer = joblib.load("models/tfidf_vectorizer.pkl")
-label_encoder = joblib.load("models/label_encoder.pkl")
+model = joblib.load("models/mbti_model_oversampling.pkl")
+vectorizer = joblib.load("models/tfidf_vectorizer_oversampling.pkl")
+label_encoder = joblib.load("models/label_encoder_oversampling.pkl")
 label_to_mbti = label_encoder.inverse_transform(list(range(len(label_encoder.classes_))))
+
+
 
 def MBTI_predictor(text):
     """
@@ -11,12 +14,11 @@ def MBTI_predictor(text):
 
     Args:
         text (str): The input text.
-        model (LogisticRegression): The trained Logistic Regression model.
-        vectorizer (TfidfVectorizer): The fitted TfidfVectorizer.
 
     Returns:
         tuple: A tuple containing the top 3 predicted MBTI types and the corresponding probabilities of that prediction.
     """
+    text = preprocess_text(text)
     text_vectorized = vectorizer.transform([text])
     probabilities = model.predict_proba(text_vectorized)
     prob_list = probabilities[0]
