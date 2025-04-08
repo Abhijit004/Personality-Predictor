@@ -42,6 +42,8 @@ This project predicts MBTI (Myers-Briggs Type Indicator) personality types from 
  
     
 ## 🚀Project workflow
+![mbti-workflow-pngversion](https://github.com/user-attachments/assets/ddaae7b3-8b11-4b27-bb9e-ac3ebe588394)
+
 
 
 
