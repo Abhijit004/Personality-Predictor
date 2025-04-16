@@ -13,7 +13,7 @@ This project predicts MBTI (Myers-Briggs Type Indicator) personality types from 
 -  Recommends **movies** and **books** for the user based on their types.
 
 ## 🧪 Model Pipeline
-> Code for model training: [google colab file](https://colab.research.google.com/drive/1-uvWVl3rmEa1NLdZCzgydeKKEeKHrgKG?usp=sharing)
+> Code for model training: [google colab file](https://colab.research.google.com/drive/1hr6RWKD4epDkdfEuhL7ByO11QaJTGPUx?usp=sharing)
 
 1.  **Text Preprocessing**  
     - Converting to lowercase.

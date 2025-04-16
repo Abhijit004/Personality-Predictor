@@ -45,7 +45,7 @@ process.on("unhandledRejection", (err) => {
 });
 
 const DB_CON = mongoose.connection
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8000;
 /*console.log("✅ Registered Routes:");
 app._router.stack.forEach((middleware) => {
 	if (middleware.route) {

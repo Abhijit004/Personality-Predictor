@@ -1,11 +1,35 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./Hero.css";
-import { Box, Button, ButtonGroup, Typography } from "@mui/material";
-import EastIcon from '@mui/icons-material/East';
+import { Alert, Box, Button, ButtonGroup, Input, TextField, Typography } from "@mui/material";
+import EastIcon from "@mui/icons-material/East";
+import { predictMBTI } from "../../utils/Api";
 const images = ["/assets/Variant-1.webp", "/assets/Variant-2.webp", "/assets/Variant-3.webp"];
 
 const Hero = () => {
     const [bgImage, setBgImage] = useState(images[0]);
+    const textRef = useRef();
+    const [loading, setLoading] = useState(false);
+
+    const [alertSignal, setAlertSignal] = useState("info")
+    const [alertMessage, setAlertMessage] = useState("Submit text to check MBTI")
+
+    const handlePredict = async()=>{
+        try{
+            setLoading(true);
+            console.log(textRef?.current?.value)
+            const res = await predictMBTI("I am feeling lucky")
+            console.log(res)
+            setAlertMessage("Your MBTI detected!")
+            setAlertSignal("success")
+        }catch(err){
+            console.log(err.message)
+            setAlertMessage(err.message)
+            setAlertSignal("error")
+        }finally {
+            setLoading(false)
+        }
+
+    }
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -118,11 +142,51 @@ const Hero = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    <Button size="large" variant="contained" sx={{ backgroundColor: "var(--mui-blue)" }} endIcon={<EastIcon />}>
+                    <Button
+                        size="large"
+                        variant="contained"
+                        sx={{ backgroundColor: "var(--mui-blue)" }}
+                        endIcon={<EastIcon />}
+                    >
                         What is MBTI?
                     </Button>
                 </a>
             </ButtonGroup>
+            <Box
+                sx={{
+                    marginTop: "2rem",
+                    padding: "1rem",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignitems: "center",
+                    flexDirection: "column",
+                    border: "1px solid grey",
+                    borderRadius: "5px",
+                    textAlign: "center",
+                    width: "min(100%, 40rem)",
+                }}
+            >
+                <Typography variant="h5">Test yourself!</Typography>
+                <Typography variant="body1">
+                    Want to know how we work? Jot down something about yourself- maybe a fun fact or how you are feeling
+                    right now, and out model will detect your API right away! Feel free to submit any kind of text you
+                    would like to, we are not saving any of the data you provide here or using it for any use other than
+                    predicting your type.
+                </Typography>
+                <TextField
+                    id="outlined-basic"
+                    label="sample"
+                    variant="outlined"
+                    sx={{
+                        margin: "1rem 0",
+                    }}
+                    ref={textRef}
+                />
+                <Box sx= {{display: "flex", gap: "1rem"}}>
+                    <Button variant="contained" loading={loading} onClick={handlePredict}>Predict My MBTI!</Button>
+                    <Alert severity="info">Submit to know your MBTI</Alert>
+                </Box>
+            </Box>
         </Box>
     );
 };
