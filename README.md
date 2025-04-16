@@ -12,7 +12,7 @@ This project predicts MBTI (Myers-Briggs Type Indicator) personality types from 
 -  Predicts the `MBTI type` of the user based on **three questions**.
 -  Recommends **movies** and **books** for the user based on their types.
 
-## 🧪 Model Pipeline
+## 🧪 Model Pipeline (For existing logistic regression)
 > Code for model training: [google colab file](https://colab.research.google.com/drive/1hr6RWKD4epDkdfEuhL7ByO11QaJTGPUx?usp=sharing)
 
 1.  **Text Preprocessing**  
@@ -27,8 +27,8 @@ This project predicts MBTI (Myers-Briggs Type Indicator) personality types from 
 3.  **Classification**  
     **Logistic regression** model of `scikit-learn`
     
-4.  **Accuracy**  
-    - Oversampling: `90%`
+4.  **Accuracy with Logistic regression**  
+    - Oversampling: `91%`, with 84% on `MBTI 500` dataset.
     - Augmentation: `89%`
     - Using class weights: `67%`
     - Undersampling: `56%`
@@ -39,12 +39,11 @@ This project predicts MBTI (Myers-Briggs Type Indicator) personality types from 
 - [MBTI dataset](https://www.kaggle.com/datasets/datasnaek/mbti-type)
 - [Movie dataset](https://www.kaggle.com/datasets/jrobischon/wikipedia-movie-plots)
 - [Books dataset](https://www.kaggle.com/datasets/ishikajohari/best-books-10k-multi-genre-data)
+- [MBTI testing dataset](https://www.kaggle.com/datasets/zeyadkhalid/mbti-personality-types-500-dataset)
  
     
 ## 🚀Project workflow
 ![mbti-workflow-pngversion](https://github.com/user-attachments/assets/ddaae7b3-8b11-4b27-bb9e-ac3ebe588394)
-
-
 
 
 ## 📦 API Usage
@@ -83,4 +82,4 @@ The API returns the top three MBTI types along with their confidences, as predic
 - `scikit-learn` for model building and accuracy analysis.
 - `React` with `Javascript`, for building the frontend. Hosted via **Vercel**.
 - `NodeJS` for Backend- authentication, fetching movies/books of particular types. Hosted via **onrender**.
-- `MongoDB atlas` for database.
+- `MongoDB atlas` for database, storing user info and movies/books data.
