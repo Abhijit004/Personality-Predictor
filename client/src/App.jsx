@@ -4,6 +4,7 @@ import AllRoutes from "./Routes";
 import { BrowserRouter } from "react-router-dom";
 import { AuthProvider } from "./AuthContext";
 import { GoogleOAuthProvider } from "@react-oauth/google";
+import { pink } from "@mui/material/colors";
 
 const client_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID;
 
@@ -24,7 +25,8 @@ export const appTheme = createTheme({
         MuiButton: {
             styleOverrides: {
                 root: {
-                    textTransform: "none", // Disable uppercase
+                    textTransform: "none",
+                    backgroundColor: pink[500]
                 },
             },
         },
