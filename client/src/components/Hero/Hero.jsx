@@ -1,27 +1,31 @@
 import { useState, useEffect, useRef } from "react";
 import "./Hero.css";
-import { Alert, Box, Button, ButtonGroup, Container, TextField, Typography } from "@mui/material";
+import { Skeleton, Box, Button, ButtonGroup, Card, Container, TextField, Typography, Alert } from "@mui/material";
 import EastIcon from "@mui/icons-material/East";
 import { predictMBTI } from "../../utils/Api";
 import Highlights from "../Highlights/Highlights";
 import { ArrowRight, Send } from "@mui/icons-material";
 import { pink, purple } from "@mui/material/colors";
+import MBTI from "../../assets/MBTI/mbti.json";
 const images = ["/assets/Variant-1.webp", "/assets/Variant-2.webp", "/assets/Variant-3.webp"];
 
 const Hero = () => {
     const [bgImage, setBgImage] = useState(images[0]);
     const textRef = useRef();
     const [loading, setLoading] = useState(false);
-
+    const [sampleRun, setSampleRun] = useState(null);
+    const [inputText, setInputText] = useState("");
+    const appWidth = window.innerWidth
     const [alertSignal, setAlertSignal] = useState("info");
     const [alertMessage, setAlertMessage] = useState("Submit text to check MBTI");
 
     const handlePredict = async () => {
         try {
             setLoading(true);
-            console.log(textRef?.current?.value);
-            const res = await predictMBTI("I am feeling lucky");
+            console.log(inputText);
+            const res = await predictMBTI(inputText);
             console.log(res);
+            setSampleRun(res?.data);
             setAlertMessage("Your MBTI detected!");
             setAlertSignal("success");
         } catch (err) {
@@ -145,11 +149,7 @@ const Hero = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                 >
-                    <Button
-                        size="large"
-                        variant="contained"
-                        endIcon={<EastIcon />}
-                    >
+                    <Button size="large" variant="contained" endIcon={<EastIcon />}>
                         What is MBTI?
                     </Button>
                 </a>
@@ -183,9 +183,9 @@ const Hero = () => {
                         </Typography>
                         <Typography variant="body1" sx={{ color: "text.secondary", fontSize: "1.2rem" }}>
                             Want to know how we work? Jot down something about yourself- maybe a fun fact or how you are
-                            feeling right now, and out model will detect your API right away! Feel free to submit any
-                            kind of text you would like to, we are not saving any of the data you provide here or using
-                            it for any use other than predicting your type.
+                            feeling right now, and out model will detect your MBTI Type right away! Feel free to submit
+                            any kind of text you would like to, we are not saving any of the data you provide here or
+                            using it for any use other than predicting your type.
                         </Typography>
                     </Box>
                     <Box
@@ -219,18 +219,74 @@ const Hero = () => {
                                 },
                             }}
                             ref={textRef}
-                            size="large"
+                            size="small"
+                            onChange={(e) => setInputText(e.target.value)}
                         />
                         <Button
                             variant="contained"
                             loading={loading}
                             onClick={handlePredict}
-                            size="large"
+                            size="small"
                             endIcon={<Send />}
                             sx={{ bgcolor: pink[500] }}
                         >
-                            Predict My MBTI
+                            {appWidth < 500 ? "" : "Predict My MBTI"}
                         </Button>
+                    </Box>
+                    <Alert severity={alertSignal} sx={{ width: { sm: "100%", md: "80%" } }}>
+                        {alertMessage}
+                    </Alert>
+
+                    <Box
+                        sx={{
+                            width: { sm: "100%", md: "80%" },
+                            gap: 2,
+                            height: "min-content",
+                            textAlign: "left",
+                        }}
+                    >
+                        <Typography component="h5" variant="h5" gutterBottom fontWeight={600}>
+                            Results Shown here
+                        </Typography>
+                        <div style={{ display: "flex", justifyContent: "start", flexWrap: "wrap", gap: "1.3rem" }}>
+                            {loading && <Skeleton animation="wave" sx={{ width: "100%", height: 200, p: 0, m: 0 }} />}
+                            {!loading &&
+                                sampleRun &&
+                                [0, 1, 2].map((i, key) => {
+                                    return (
+                                        <Card
+                                            sx={{
+                                                p: 3,
+                                                width: {
+                                                    md: "100%",
+                                                    lg: "30%",
+                                                },
+                                            }}
+                                            elevation={3}
+                                            key={key}
+                                        >
+                                            <Typography
+                                                sx={{ fontWeight: "medium", opacity: "50%" }}
+                                                color= 'text.secondary'
+                                            >
+                                                Confidence of Model
+                                            </Typography>
+                                            <Typography color="text.primary" gutterBottom>{sampleRun?.confidences[i]}</Typography>
+                                            <div>
+                                                <Typography
+                                                    gutterBottom
+                                                    sx={{ fontWeight: "medium", fontSize: "1.2rem" }}
+                                                >
+                                                    {sampleRun?.predictions[i]}
+                                                </Typography>
+                                                <Typography variant="body2" sx={{ color: "text.secondary" }}>
+                                                    {MBTI[sampleRun?.predictions[i]].description}
+                                                </Typography>
+                                            </div>
+                                        </Card>
+                                    );
+                                })}
+                        </div>
                     </Box>
                 </Container>
             </Box>

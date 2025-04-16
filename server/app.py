@@ -21,7 +21,7 @@ load_dotenv()  # take environment variables
 config = dotenv_values(".env")
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, supports_credentials=True, origins=["http://localhost:5173", "https://vibesphere-mbti.vercel.app"])
 
 # def ping():
 #     print("Ping Ping!")
@@ -47,4 +47,3 @@ def predict():
 
 if __name__ == '__main__':
     app.run(debug=config['debug'] == 'True')
-    # app.run(debug=False)
