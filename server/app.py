@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 # from apscheduler.schedulers.background import BackgroundScheduler
 import joblib
 import os
@@ -20,6 +21,7 @@ load_dotenv()  # take environment variables
 config = dotenv_values(".env")
 
 app = Flask(__name__)
+CORS(app)
 
 # def ping():
 #     print("Ping Ping!")
