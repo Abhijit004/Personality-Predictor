@@ -15,7 +15,7 @@ const Hero = () => {
     const [loading, setLoading] = useState(false);
     const [sampleRun, setSampleRun] = useState(null);
     const [inputText, setInputText] = useState("");
-    const appWidth = window.innerWidth
+    const appWidth = window.innerWidth;
     const [alertSignal, setAlertSignal] = useState("info");
     const [alertMessage, setAlertMessage] = useState("Submit text to check MBTI");
 
@@ -182,10 +182,22 @@ const Hero = () => {
                             Test Yourself
                         </Typography>
                         <Typography variant="body1" sx={{ color: "text.secondary", fontSize: "1.2rem" }}>
-                            Want to know how we work? Jot down something about yourself- maybe a fun fact or how you are
-                            feeling right now, and out model will detect your MBTI Type right away! Feel free to submit
-                            any kind of text you would like to, we are not saving any of the data you provide here or
-                            using it for any use other than predicting your type.
+                            Curious about your MBTI type? Tell us a little something about yourself—how you're
+                            feeling, a fun fact, or just anything that's on your mind! Our smart personality prediction
+                            model will analyze your text and instantly guess your MBTI type. Don't worry, your input
+                            stays private. We don't store or use your words for anything beyond this one-time
+                            prediction. Just type and submit—simple as that!
+                            <br />
+                            <br />
+                            Know more about the API{" "}
+                            <a
+                                href="https://github.com/Abhijit004/Personality-Predictor"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                here
+                            </a>
+                            .
                         </Typography>
                     </Box>
                     <Box
@@ -199,7 +211,7 @@ const Hero = () => {
                     >
                         <TextField
                             id="outlined-basic"
-                            label="Write something and see..."
+                            label="I am feeling so special..."
                             variant="outlined"
                             sx={{
                                 flexGrow: 1,
@@ -267,11 +279,13 @@ const Hero = () => {
                                         >
                                             <Typography
                                                 sx={{ fontWeight: "medium", opacity: "50%" }}
-                                                color= 'text.secondary'
+                                                color="text.secondary"
                                             >
                                                 Confidence of Model
                                             </Typography>
-                                            <Typography color="text.primary" gutterBottom>{sampleRun?.confidences[i]}</Typography>
+                                            <Typography color="text.primary" gutterBottom>
+                                                {sampleRun?.confidences[i]}
+                                            </Typography>
                                             <div>
                                                 <Typography
                                                     gutterBottom

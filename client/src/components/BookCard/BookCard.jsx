@@ -103,7 +103,7 @@ export const BookSmall = ({ book, selected, setSelected, index }) => {
                                 endIcon={<SendIcon />}
                                 sx={{ bgcolor: "#0d47a1", color: "#fff" }}
                             >
-                                Send
+                                Know More
                             </Button>
                         </a>
                     </CardContent>
